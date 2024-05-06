@@ -1,0 +1,17 @@
+{
+  "name": "viewstatements",
+  "version": "0.0.1",
+  "main": "index.js",
+  "scripts": {
+    "start": "functions-framework --target=ViewStatements"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@google-cloud/storage": "^7.9.0",
+    "axios": "^1.6.8",
+    "chai": "^5.1.0",
+    "mocha": "^10.3.0"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "name": "tests",
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "test": "npx mocha --require test-setup.cjs tests/**/*.test.js",
+    "test:coverage": "nyc --reporter=lcov --reporter=text-lcov --reporter=text-summary npm run test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@google-cloud/storage": "^7.9.0",
+    "assert": "^2.1.0",
+    "axios": "^1.6.8",
+    "chai": "^5.1.0",
+    "joi": "^17.12.2",
+    "nyc": "^15.1.0"
+  },
+  "devDependencies": {
+    "dotenv": "^16.4.5",
+    "mocha": "^10.4.0",
+    "nock": "^13.5.4",
+    "sinon": "^17.0.1"
+  }
+}

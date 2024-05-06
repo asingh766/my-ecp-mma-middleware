@@ -1,0 +1,11 @@
+{
+  "name": "cardinfo",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "functions-framework --target=CardInfo"
+  },
+  "dependencies": {
+    "axios": "^1.6.8",
+    "functions-framework": "^0.6.10"
+  }
+}

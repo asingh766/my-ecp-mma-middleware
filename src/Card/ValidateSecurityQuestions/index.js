@@ -1,0 +1,50 @@
+const axios = require("axios");
+
+/**
+ * Responds to any HTTP request.
+ *
+ * @param {!express:Request} req HTTP request context.
+ * @param {!express:Response} res HTTP response context.
+ */
+exports.ApplyCardValidateSecurityQuestions = async (req, res) => {
+	res.set("Access-Control-Allow-Origin", "*");
+	if (req.method === "OPTIONS") {
+		// Send response to OPTIONS requests
+		res.set("Access-Control-Allow-Methods", "*");
+		res.set("Access-Control-Allow-Headers", "*");
+		res.set("Access-Control-Max-Age", "3600");
+		res.status(204).send("");
+	} else {
+		try {
+			//await ApplyCardSchema.validateAsync(req.body, { abortEarly: false });
+			let response = await validateSecurityQuestions(req); 
+			console.log("API Response:: ", response);
+			console.log("API Response Data:: ", response.data);
+			res.status(200).send(JSON.stringify(response.data));
+		} catch (error) {
+			// const errorMessages = error.details?.map((err) =>
+			// 	err.message.replace(/"/g, "")
+			// );
+			console.log("API Error:: " + error);
+			if (error.response) {
+				console.log("API Error Data:: ", error.response.data);
+				console.log("API Error Code:: ", error.response.status);
+			}
+			res.status(error.response.status).send(error.response.data);
+			//return res.status(400).send({ errors: errorMessages });
+		}
+	}
+};
+
+const validateSecurityQuestions = async (req) => {
+  let headerPassword = process.env.headerPassword;
+	console.log(req.body);
+	return await axios.post(`${process.env.baseUrl}/cards/validate-security-questions`, 
+		req.body, 
+		{
+			headers: {
+				'apipsk': headerPassword
+			}
+		}
+	);
+}

@@ -1,0 +1,4698 @@
+swagger: "2.0"
+info:
+  title: MyECP/MMA Swagger
+  description: Middleware API on API Gateway with a Google Cloud Functions backend
+  version: 1.0.0
+schemes:
+  - https
+host: api-gateway-staging-42uyj3y4.uc.gateway.dev
+basePath: /api
+x-google-endpoints:
+- name: https://api-gateway-staging-42uyj3y4.uc.gateway.dev
+  allowCors: True
+produces:
+  - application/json
+paths:
+  # Login
+  /login:
+    options:
+      tags:
+        - Login
+      summary: CORS Pre-flight
+      operationId: corsLogin
+      x-google-backend:
+        address: "https://us-central1-myecpmma-np-qa.cloudfunctions.net/Login-staging"
+      responses:
+        200:
+          description: A successful response
+    post:
+      tags:
+        - Login
+      description: "Login"
+      operationId: "Login"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      x-google-backend:
+        address: "https://us-central1-myecpmma-np-qa.cloudfunctions.net/Login-staging"
+      parameters:
+        - in: "body"
+          name: "body"
+          description: "Login"
+          required: true
+          schema:
+            $ref: "#/definitions/LoginRequest"
+      responses:
+        200:
+          description: "Successful response"
+          schema:
+            $ref: "#/definitions/LoginResponse"
+        405:
+          description: "Invalid input"
+
+  # Logout
+  /logout:
+    options:
+      tags:
+        - Logout
+      summary: CORS Pre-flight
+      operationId: corsLogout
+      x-google-backend:
+        address: "https://us-central1-myecpmma-np-qa.cloudfunctions.net/Logout-staging"
+      responses:
+        200:
+          description: A successful response
+    post:
+      tags:
+        - Logout
+      description: "Logout"
+      operationId: "Logout"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      x-google-backend:
+        address: https://us-central1-myecpmma-np-qa.cloudfunctions.net/Logout-staging
+      parameters:
+        - in: "body"
+          name: "body"
+          description: "Logout"
+          required: true
+          schema:
+            $ref: "#/definitions/LogoutRequest"
+      responses:
+        200:
+          description: "Successful response"
+          schema:
+            $ref: "#/definitions/LogoutResponse"
+        405:
+          description: "Invalid input"
+
+  # Forgot User Name
+  /forgotUserName:
+    options:
+      tags:
+        - Forgot UserName
+      summary: CORS Pre-flight
+      operationId: corsForgotUserName
+      x-google-backend:
+        address: "https://us-central1-myecpmma-np-qa.cloudfunctions.net/ForgotUserName-staging"
+      responses:
+        200:
+          description: A successful response
+    post:
+      tags:
+        - Forgot UserName
+      description: "Forgot UserName"
+      operationId: "Forgot UserName"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      x-google-backend:
+        address: "https://us-central1-myecpmma-np-qa.cloudfunctions.net/ForgotUserName-staging"
+      parameters:
+        - in: "body"
+          name: "body"
+          description: "Forgot User Name"
+          required: true
+          schema:
+            $ref: "#/definitions/ForgotUserNameRequest"
+      responses:
+        200:
+          description: "Successful response"
+          schema:
+            $ref: "#/definitions/ForgotUserNameResponse"
+        405:
+          description: "Invalid input"
+
+  # Forgot User Password
+  /forgotPassword:
+    options:
+      tags:
+        - Forgot Password
+      summary: CORS Pre-flight
+      operationId: corsForgotPassword
+      x-google-backend:
+        address: "https://us-central1-myecpmma-np-qa.cloudfunctions.net/ForgotPassword-staging"
+      responses:
+        200:
+          description: A successful response
+    post:
+      tags:
+        - Forgot Password
+      description: "Forgot Password"
+      operationId: "Forgot Password"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      x-google-backend:
+        address: https://us-central1-myecpmma-np-qa.cloudfunctions.net/ForgotPassword-staging
+      parameters:
+        - in: "body"
+          name: "body"
+          description: "Forgot User Password"
+          required: true
+          schema:
+            $ref: "#/definitions/ForgotPasswordRequest"
+      responses:
+        200:
+          description: "Successful response"
+          schema:
+            $ref: "#/definitions/ForgotPasswordResponse"
+        405:
+          description: "Invalid input"
+
+  # Forgot User Password Security Questions
+  /forgotPasswordSQ:
+    options:
+      tags:
+        - Forgot Password
+      summary: CORS Pre-flight
+      operationId: corsForgotPasswordSQ
+      x-google-backend:
+        address: "https://us-central1-myecpmma-np-qa.cloudfunctions.net/ForgotPasswordSQ-staging"
+      responses:
+        200:
+          description: A successful response
+    post:
+      tags:
+        - Forgot Password
+      description: "Forgot Password Security Questions"
+      operationId: "Forgot Password Security Questions"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      x-google-backend:
+        address: https://us-central1-myecpmma-np-qa.cloudfunctions.net/ForgotPasswordSQ-staging
+      parameters:
+        - in: "body"
+          name: "body"
+          description: "Forgot User Password Security Question"
+          required: true
+          schema:
+            $ref: "#/definitions/ForgotPasswordSQRequest"
+      responses:
+        200:
+          description: "Successful response"
+          schema:
+            $ref: "#/definitions/ForgotPasswordSQResponse"
+        405:
+          description: "Invalid input"
+
+  # Reset Password
+  /resetPassword:
+    options:
+      tags:
+        - Forgot Password
+      summary: CORS Pre-flight
+      operationId: corsResetPassword
+      x-google-backend:
+        address: "https://us-central1-myecpmma-np-qa.cloudfunctions.net/ResetPassword-staging"
+      responses:
+        200:
+          description: A successful response
+    post:
+      tags:
+        - Forgot Password
+      description: "Reset Password"
+      operationId: "Reset Password"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      x-google-backend:
+        address: https://us-central1-myecpmma-np-qa.cloudfunctions.net/ResetPassword-staging
+      parameters:
+        - in: "body"
+          name: "body"
+          description: "Reset User Password"
+          required: true
+          schema:
+            $ref: "#/definitions/ResetPasswordRequest"
+      responses:
+        200:
+          description: "Successful response"
+          schema:
+            $ref: "#/definitions/ResetPasswordResponse"
+        405:
+          description: "Invalid input"
+
+  # Registration
+  /registration/cardinfo:
+    options:
+      tags:
+        - Registration
+      summary: CORS Pre-flight
+      operationId: corsRegistrationCardInfo
+      x-google-backend:
+        address: "https://us-central1-myecpmma-np-qa.cloudfunctions.net/CardInfo-staging"
+      responses:
+        200:
+          description: A successful response
+    post:
+      tags:
+        - Registration
+      description: "Registration - Card Info"
+      operationId: "Registration - Card Info"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      x-google-backend:
+        address: https://us-central1-myecpmma-np-qa.cloudfunctions.net/CardInfo
+      parameters:
+        - in: "body"
+          name: "body"
+          description: "Index"
+          required: true
+          schema:
+            $ref: "#/definitions/CardInfoRequest"
+      responses:
+        200:
+          description: "Successful response"
+          schema:
+            $ref: "#/definitions/CardInfoResponse"
+        404:
+          description: "Not Found"
+        500:
+          description: "Internal Server Error"
+
+  /registration/email-validation:
+    options:
+      tags:
+        - Registration
+      summary: CORS Pre-flight
+      operationId: corsRegistrationEmailValidation
+      x-google-backend:
+        address: https://us-central1-myecpmma-np-qa.cloudfunctions.net/EmailValidation-staging
+      responses:
+        200:
+          description: Success
+    post:
+      tags:
+        - Registration
+      operationId: "Register - Email Validation"
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      x-google-backend:
+        address: https://us-central1-myecpmma-np-qa.cloudfunctions.net/EmailValidation-staging      
+      parameters:
+        - in: "body"
+          name: "body"
+          description: "Email Validation"
+          required: true
+          schema:
+            $ref: "#/definitions/EmailValidationRequest"
+      responses:
+        200:
+          description: Success
+          schema:
+            $ref: "#/definitions/EmailValidationResponse"
+        500:
+          description: Internal Server Error
+
+  /registration/send-email:
+    options:
+      tags:
+        - Registration
+      summary: CORS Pre-flight
+      operationId: corsRegistrationSendEmail
+      x-google-backend:
+        address: https://us-central1-myecpmma-np-qa.cloudfunctions.net/SendEmail-staging
+      responses:
+        200:
+          description: Success
+    post:
+      tags:
+        - Registration
+      operationId: "Register - Send Email"
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      x-google-backend:
+        address: https://us-central1-myecpmma-np-qa.cloudfunctions.net/SendEmail-staging      
+      parameters:
+        - in: "body"
+          name: "body"
+          description: "Email Validation"
+          required: true
+          schema:
+            $ref: "#/definitions/EmailValidationRequest"
+      responses:
+        200:
+          description: Success
+          schema:
+            $ref: "#/definitions/EmailValidationResponse"
+        500:
+          description: Internal Server Error
+
+  /registration/create-profile:
+    options:
+      tags:
+        - Registration
+      summary: CORS Pre-flight
+      operationId: corsRegistrationCreateProfile
+      x-google-backend:
+        address: "https://us-central1-myecpmma-np-qa.cloudfunctions.net/CreateProfile-staging"
+      responses:
+        200:
+          description: A successful response
+    post:
+      tags:
+        - Registration
+      description: "Registration - Create Profile"
+      operationId: "Registration - Create Profile"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      x-google-backend:
+        address: https://us-central1-myecpmma-np-qa.cloudfunctions.net/CreateProfile-staging
+      parameters:
+        - in: "body"
+          name: "body"
+          description: "register"
+          required: true
+          schema:
+            $ref: "#/definitions/CreateProfileRequest"
+      responses:
+        200:
+          description: "Successful response"
+          schema:
+            $ref: "#/definitions/CreateProfileResponse"
+        404:
+          description: "Not Found"
+        500:
+          description: "Internal Server Error"
+
+  /security-questions:
+    options:
+      tags:
+        - Security Questions
+      summary: CORS Pre-flight
+      operationId: corsSecurityQuestions
+      x-google-backend:
+        address: "https://us-central1-myecpmma-np-qa.cloudfunctions.net/SecurityQuestions-staging"
+      responses:
+        200:
+          description: A successful response
+    get:
+      tags:
+        - Security Questions
+      description: "Security Questions"
+      operationId: "Security Questions"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      x-google-backend:
+        address: https://us-central1-myecpmma-np-qa.cloudfunctions.net/SecurityQuestions-staging
+      responses:
+        200:
+          description: "Successful response"
+          schema:
+            type: "array"
+            items: { $ref: "#/definitions/SecurityQuestionsResponse" }
+        404:
+          description: "Not Found"
+        500:
+          description: "Internal Server Error"
+
+  # Account Summary
+  /users/{userId}/accounts:
+    options:
+      tags:
+        - Account Summary
+      summary: CORS Pre-flight
+      operationId: corsListAccountSummary
+      x-google-backend:
+        address: "https://us-central1-myecpmma-np-qa.cloudfunctions.net/AccountSummary-staging"
+      parameters:
+        - name: userId
+          required: true
+          type: string
+          in: path
+      responses:
+        200:
+          description: A successful response
+    get:
+      tags:
+        - Account Summary
+      operationId: "Account Summary List"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      x-google-backend:
+        address: https://us-central1-myecpmma-np-qa.cloudfunctions.net/AccountSummary-staging
+      parameters:
+        - name: userId
+          required: true
+          type: string
+          in: path
+      responses:
+        200:
+          description: "Successful response"
+          schema:
+            type: "array"
+            items: { $ref: "#/definitions/AccountSummaryResponse" }
+        404:
+          description: "Not Found"
+        500:
+          description: "Internal Server Error"
+
+  /users/{userId}/accounts/{accountNo}:
+    options:
+      tags:
+        - Account Summary
+      summary: CORS Pre-flight
+      operationId: corsAccountSummaryByAccountNo
+      x-google-backend:
+        address: "https://us-central1-myecpmma-np-qa.cloudfunctions.net/AccountSummaryByAccountNo-staging"
+      parameters:
+        - name: userId
+          required: true
+          type: string
+          in: path
+        - name: accountNo
+          in: path
+          description: Account Number
+          required: true
+          type: string
+      responses:
+        200:
+          description: A successful response
+    get:
+      tags:
+        - Account Summary
+      operationId: "Account Summary"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      x-google-backend:
+        address: https://us-central1-myecpmma-np-qa.cloudfunctions.net/AccountSummaryByAccountNo-staging
+      parameters:
+        - name: userId
+          required: true
+          type: string
+          in: path
+        - name: accountNo
+          in: path
+          description: Account Number
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Successful response"
+          schema:
+            $ref: "#/definitions/AccountSummaryResponse"
+        404:
+          description: "Not Found"
+        500:
+          description: "Internal Server Error"
+
+  /users/{userId}/accounts/{accountNo}/restrictions:
+    options:
+      tags:
+        - Account Summary
+      summary: CORS Pre-flight
+      operationId: corsAccountSummaryRestrictions
+      x-google-backend:
+        address: "https://us-central1-myecpmma-np-qa.cloudfunctions.net/UserRestrictions-staging"
+      parameters:
+        - name: userId
+          required: true
+          type: string
+          in: path
+        - name: accountNo
+          in: path
+          description: Account Number
+          required: true
+          type: string
+      responses:
+        200:
+          description: A successful response
+    get:
+      tags:
+        - Account Summary
+      operationId: "Account Summary Restrictions"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      x-google-backend:
+        address: https://us-central1-myecpmma-np-qa.cloudfunctions.net/UserRestrictions-staging
+      parameters:
+        - name: userId
+          required: true
+          type: string
+          in: path
+        - name: accountNo
+          in: path
+          description: Account Number
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Successful response"
+          schema:
+            $ref: "#/definitions/AccountRestrictionResponse"
+        204:
+          description: "No Content"
+        500:
+          description: "Internal Server Error"
+          
+  /users/{userId}/accounts/{accountNo}/statement-details:
+    options:
+      tags:
+        - Account Summary
+      summary: CORS Pre-flight
+      operationId: corsStatement
+      x-google-backend:
+        address: "https://us-central1-myecpmma-np-qa.cloudfunctions.net/StatementDetails-staging"
+      parameters:
+        - name: userId
+          required: true
+          type: string
+          in: path
+        - name: accountNo
+          in: path
+          description: Account Number
+          required: true
+          type: string
+      responses:
+        200:
+          description: A successful response
+    get:
+      tags:
+        - Account Summary
+      operationId: "Statement"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      x-google-backend:
+        address: https://us-central1-myecpmma-np-qa.cloudfunctions.net/StatementDetails-staging
+      parameters:
+        - name: userId
+          required: true
+          type: string
+          in: path
+        - name: accountNo
+          in: path
+          description: Account Number
+          required: true
+          type: number
+      responses:
+        200:
+          description: "Success"
+          schema:
+            type: "array"
+            items: { $ref: "#/definitions/MMAStatementsResponse" }
+        500:
+          description: "Internal Server Error"
+
+  # Statements
+  /users/{userId}/accounts/{accountNo}/statements:
+    options:
+      tags:
+        - Account Summary
+      summary: CORS Pre-flight
+      operationId: corsStatements
+      x-google-backend:
+        address: "https://us-central1-myecpmma-np-qa.cloudfunctions.net/Statements-staging"
+      parameters:
+        - name: userId
+          required: true
+          type: string
+          in: path
+        - name: accountNo
+          in: path
+          description: Account Number
+          required: true
+          type: string
+      responses:
+        200:
+          description: A successful response
+    get:
+      tags:
+        - Account Summary
+      operationId: "Statements"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      x-google-backend:
+        address: https://us-central1-myecpmma-np-qa.cloudfunctions.net/Statements-staging
+      parameters:
+        - name: userId
+          required: true
+          type: string
+          in: path
+        - name: accountNo
+          in: path
+          description: Account Number
+          required: true
+          type: number
+      responses:
+        200:
+          description: "Success"
+          schema:
+            type: "array"
+            items: { $ref: "#/definitions/StatementsResponse" }
+        500:
+          description: "Internal Server Error"
+
+  /users/{userId}/accounts/{accountNo}/statements/{statementNo}:
+    options:
+      tags:
+        - Account Summary
+      summary: CORS Pre-flight
+      operationId: corsStatementsByNo
+      x-google-backend:
+        address: "https://us-central1-myecpmma-np-qa.cloudfunctions.net/ViewStatements-staging"
+      parameters:
+        - name: userId
+          required: true
+          type: string
+          in: path
+        - name: accountNo
+          in: path
+          description: Account Number
+          required: true
+          type: string
+        - name: statementNo
+          in: path
+          description: statementNo
+          type: string
+          required: true
+        - name: download
+          in: query
+          description: Download Statement
+          type: boolean
+      responses:
+        200:
+          description: A successful response
+    get:
+      tags:
+        - Account Summary
+      operationId: "StatementsByNo"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      x-google-backend:
+        address: https://us-central1-myecpmma-np-qa.cloudfunctions.net/ViewStatements-staging
+      parameters:
+        - name: userId
+          required: true
+          type: string
+          in: path
+        - name: accountNo
+          in: path
+          description: Account Number
+          required: true
+          type: number
+        - name: statementNo
+          in: path
+          description: statementNo
+          type: string
+          required: true
+        - name: download
+          in: query
+          description: Download Statement
+          type: boolean
+      responses:
+        200:
+          description: "Success"
+          schema:
+            type: "array"
+            items: { $ref: "#/definitions/StatementsResponse" }
+        500:
+          description: "Internal Server Error"
+
+  # Payment History
+  /users/{userId}/accounts/{accountNo}/payment-history:
+    options:
+      tags:
+        - Account Summary
+      summary: CORS Pre-flight
+      operationId: corsPaymentHistory
+      x-google-backend:
+        address: "https://us-central1-myecpmma-np-qa.cloudfunctions.net/PaymentHistory-staging"
+      parameters:
+        - name: userId
+          required: true
+          type: string
+          in: path
+        - name: accountNo
+          in: path
+          description: Account Number
+          required: true
+          type: string
+      responses:
+        200:
+          description: A successful response
+    get:
+      tags:
+        - Account Summary
+      operationId: "Payment History"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      x-google-backend:
+        address: https://us-central1-myecpmma-np-qa.cloudfunctions.net/PaymentHistory-staging
+      parameters:
+        - name: userId
+          required: true
+          type: string
+          in: path
+        - name: accountNo
+          in: path
+          description: Account Number
+          required: true
+          type: number
+      responses:
+        200:
+          description: "Success"
+          schema:
+            type: "array"
+            items: { $ref: "#/definitions/PaymentHistoryResponse" }
+        500:
+          description: "Internal Server Error"
+
+  # Recent Activity
+  /users/{userId}/accounts/{accountNo}/recent-activity:
+    options:
+      tags:
+        - Account Summary
+      summary: CORS Pre-flight
+      operationId: corsRecentActivity
+      x-google-backend:
+        address: "https://us-central1-myecpmma-np-qa.cloudfunctions.net/RecentActivity-staging"
+      parameters:
+        - name: userId
+          required: true
+          type: string
+          in: path
+        - name: accountNo
+          in: path
+          description: Account Number
+          required: true
+          type: string
+      responses:
+        200:
+          description: A successful response
+    get:
+      tags:
+        - Account Summary
+      operationId: "Recent Activity"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      x-google-backend:
+        address: https://us-central1-myecpmma-np-qa.cloudfunctions.net/RecentActivity-staging
+      parameters:
+        - name: userId
+          required: true
+          type: string
+          in: path
+        - name: accountNo
+          in: path
+          description: Account Number
+          required: true
+          type: number
+      responses:
+        200:
+          description: "Success"
+          schema:
+            type: "array"
+            items: { $ref: "#/definitions/RecentActivityResponse" }
+        500:
+          description: "Internal Server Error"
+
+  # Reward Activity
+  /users/{userId}/accounts/{accountNo}/reward-points:
+    options:
+      tags:
+        - Account Summary
+      summary: CORS Pre-flight
+      operationId: corsRewards
+      x-google-backend:
+        address: "https://us-central1-myecpmma-np-qa.cloudfunctions.net/RewardPoints-staging"
+      parameters:
+        - name: userId
+          required: true
+          type: string
+          in: path
+        - name: accountNo
+          in: path
+          description: Account Number
+          required: true
+          type: string
+      responses:
+        200:
+          description: A successful response
+    get:
+      tags:
+        - Account Summary
+      operationId: "Rewards Points"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      x-google-backend:
+        address: https://us-central1-myecpmma-np-qa.cloudfunctions.net/RewardPoints-staging
+      parameters:
+        - name: userId
+          required: true
+          type: string
+          in: path
+        - name: accountNo
+          in: path
+          description: Rewards Points
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Success"
+          schema:
+            type: "array"
+            items: { $ref: "#/definitions/RewardPointsResponse" }
+        500:
+          description: "Internal Server Error"
+          
+  /users/{userId}/accounts/{accountNo}/overall-reward-points:
+    options:
+      tags:
+        - Account Summary
+      summary: CORS Pre-flight
+      operationId: corsOverallRewards
+      x-google-backend:
+        address: "https://us-central1-myecpmma-non-prod.cloudfunctions.net/OverAllRewardPoints"
+      parameters:
+        - name: userId
+          required: true
+          type: string
+          in: path
+        - name: accountNo
+          in: path
+          description: Account Number
+          required: true
+          type: string
+      responses:
+        200:
+          description: A successful response
+    get:
+      tags:
+        - Account Summary
+      operationId: "Overall Rewards Points"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      x-google-backend:
+        address: https://us-central1-myecpmma-non-prod.cloudfunctions.net/OverAllRewardPoints
+      parameters:
+        - name: userId
+          required: true
+          type: string
+          in: path
+        - name: accountNo
+          in: path
+          description: Rewards Points
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Success"
+          schema:
+            type: "array"
+            items: { $ref: "#/definitions/RewardPointsResponse" }
+        500:
+          description: "Internal Server Error"
+      
+  /users/{userId}/accounts/{accountNo}/contact-info:
+    options:
+      tags:
+        - Contact Info
+      summary: CORS Pre-flight
+      operationId: corsContactInfo
+      x-google-backend:
+        address: "https://us-central1-myecpmma-np-qa.cloudfunctions.net/ContactInfo-staging"
+      parameters:
+        - name: userId
+          required: true
+          type: string
+          in: path
+        - name: accountNo
+          required: true
+          type: string
+          in: path
+      responses:
+        200:
+          description: A successful response
+    get:
+      tags:
+        - Contact Info
+      operationId: "Contact Info"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      x-google-backend:
+        address: https://us-central1-myecpmma-np-qa.cloudfunctions.net/ContactInfo-staging
+      parameters:
+        - name: userId
+          required: true
+          type: string
+          in: path
+        - name: accountNo
+          required: true
+          type: string
+          in: path
+      responses:
+        200:
+          description: "Success"
+          schema:
+           $ref: "#/definitions/ContactInfo" 
+        500:
+          description: "Internal Server Error"
+                
+    put:
+      tags:
+        - Contact Info
+      operationId: "Update Contact Info"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      x-google-backend:
+        address: https://us-central1-myecpmma-np-qa.cloudfunctions.net/ContactInfo-staging
+      parameters:
+        - name: userId
+          required: true
+          type: string
+          in: path
+        - name: accountNo
+          required: true
+          type: string
+          in: path
+        - name: body
+          in: body
+          description: Contact Info
+          schema:
+            $ref: "#/definitions/ContactInfo"
+      responses:
+        200:
+          description: "Success"
+          schema:
+           $ref: "#/definitions/ContactInfoResponse" 
+        500:
+          description: "Internal Server Error"
+
+  # Plans
+  /users/{userId}/accounts/{accountNo}/plans:
+    options:
+      tags:
+        - Plans
+      summary: CORS Pre-flight
+      operationId: corsPlans
+      x-google-backend:
+        address: "https://us-central1-myecpmma-np-qa.cloudfunctions.net/Plans-staging"
+      parameters:
+        - name: userId
+          required: true
+          type: string
+          in: path
+        - name: accountNo
+          in: path
+          description: Account Number
+          required: true
+          type: string
+      responses:
+        200:
+          description: A successful response
+    get:
+      tags:
+        - Plans
+      operationId: "Plans"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      x-google-backend:
+        address: https://us-central1-myecpmma-np-qa.cloudfunctions.net/Plans-staging
+      parameters:
+        - name: userId
+          required: true
+          type: string
+          in: path
+        - name: accountNo
+          in: path
+          description: View Plan
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Success"
+          schema:
+            type: "array"
+            items: { $ref: "#/definitions/PlanResponse" }
+        500:
+          description: Internal Server Error
+
+  # Apply Card
+  /cards/apply:
+    options:
+      tags:
+        - Apply Card
+      operationId: corsApplyCard
+      x-google-backend:
+        address: https://us-central1-myecpmma-np-qa.cloudfunctions.net/ApplyCard-staging
+      responses:
+        200:
+          description: Success
+
+    post:
+      tags:
+        - Apply Card
+      operationId: "Apply Card"
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      x-google-backend:
+        address: https://us-central1-myecpmma-np-qa.cloudfunctions.net/ApplyCard-staging
+      parameters:
+        - in: body
+          name: body
+          required: true
+          schema:
+            $ref: "#/definitions/ApplyCard"
+      responses:
+        405:
+          description: "Invalid input"
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/ApplyCardResponse"
+        500:
+          description: "Internal Server Error"
+        401:
+          description: "Unauthorized Users"
+
+  /cards/get-security-questions:
+    options:
+      tags:
+        - Apply Card
+      operationId: corsApplyCardGetSecurityQuestions
+      x-google-backend:
+        address: https://us-central1-myecpmma-np-qa.cloudfunctions.net/ApplyCardSecurityQuestions-staging
+      responses:
+        200:
+          description: Success
+
+    post:
+      tags:
+        - Apply Card
+      operationId: ApplyCardGetSecurityQuestions
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      x-google-backend:
+        address: https://us-central1-myecpmma-np-qa.cloudfunctions.net/ApplyCardSecurityQuestions-staging
+      parameters:
+        - in: body
+          name: body
+          required: true
+          schema:
+            $ref: "#/definitions/ApplyCardGetSecurityQuestionsRequest"
+      responses:
+        405:
+          description: "Invalid input"
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/ApplyCardGetSecurityQuestionsResponse"
+        500:
+          description: "Internal Server Error"
+        401:
+          description: "Unauthorized Users"
+
+  /cards/validate-security-questions:
+    options:
+      tags:
+        - Apply Card
+      operationId: corsApplyCardValidateSecurityQuestions
+      x-google-backend:
+        address: https://us-central1-myecpmma-np-qa.cloudfunctions.net/ApplyCardValidateSecurityQuestions-staging
+      responses:
+        200:
+          description: Success
+
+    post:
+      tags:
+        - Apply Card
+      operationId: ApplyCardValidateSecurityQuestions
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      x-google-backend:
+        address: https://us-central1-myecpmma-np-qa.cloudfunctions.net/ApplyCardValidateSecurityQuestions-staging
+      parameters:
+        - in: body
+          name: body
+          required: true
+          schema:
+            $ref: "#/definitions/ApplyCardValidateSecurityQuestionsRequest"
+      responses:
+        405:
+          description: "Invalid input"
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/ApplyCardStatusResponse"
+        500:
+          description: "Internal Server Error"
+        401:
+          description: "Unauthorized Users"
+
+  
+          
+  # Offers
+  /offers:
+    options:
+      tags:
+        - Offers
+      summary: CORS Pre-flight
+      operationId: corsOffersList
+      x-google-backend:
+        address: https://us-central1-myecpmma-np-qa.cloudfunctions.net/Offers-staging
+      parameters:
+        - in: "body"
+          name: "body"
+          required: true
+          schema:
+            $ref: "#/definitions/OffersList"
+          description: LocationId
+      responses:
+        200:
+          description: "#/definitions/OffersListResponse"
+
+    post:
+      tags:
+        - Offers
+      operationId: "Offers List"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      x-google-backend:
+        address: https://us-central1-myecpmma-np-qa.cloudfunctions.net/Offers-staging
+      parameters:
+        - in: "body"
+          name: "body"
+          required: true
+          schema:
+            $ref: "#/definitions/OffersList"
+      responses:
+        405:
+          description: "Invalid input"
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/OffersListResponse"
+        500:
+          description: "Internal Server Error"
+        401:
+          description: "Unauthorized Users"
+
+  /offers/{offerId}:
+    options:
+      tags:
+        - Offers
+      summary: CORS Pre-flight
+      operationId: corsOffers
+      x-google-backend:
+        address: https://us-central1-myecpmma-np-qa.cloudfunctions.net/OfferDetails-staging
+      parameters:
+        - name: offerId
+          in: "path"
+          required: true
+          type: integer
+          description: OfferId
+      responses:
+        200:
+          description: "#/definitions/OfferDetailsResponse"
+
+    get:
+      tags:
+        - Offers
+      operationId: "Offer Details"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      x-google-backend:
+        address: https://us-central1-myecpmma-np-qa.cloudfunctions.net/OfferDetails-staging
+      parameters:
+        - name: offerId
+          in: "path"
+          required: true
+          type: integer
+          description: OfferId
+      responses:
+        405:
+          description: "Invalid input"
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/OfferDetailsResponse"
+        500:
+          description: "Internal Server Error"
+        401:
+          description: "Unauthorized Users"
+      
+  # Update Security Questions
+  /users/{userId}/security-questions:
+    options:
+      tags:
+        - Update Security Questions
+      summary: CORS Pre-flight
+      operationId: corsUpdateSecurityQuestions
+      x-google-backend:
+        address: "https://us-central1-myecpmma-np-qa.cloudfunctions.net/UserSecurityQuestions-staging"
+      parameters:
+        - name: userId
+          in: path
+          description: UserID
+          required: true
+          type: string
+      responses:
+        200:
+          description: A successful response
+
+    get:
+      tags:
+        - Update Security Questions
+      operationId: "Get User Security Questions"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      x-google-backend:
+        address: https://us-central1-myecpmma-np-qa.cloudfunctions.net/UserSecurityQuestions-staging
+      parameters:
+        - name: userId
+          in: path
+          description: UserID
+          required: true
+          type: string
+      responses:
+        405:
+          description: "Invalid input"
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/GetSecurityQuestionsResponse"
+        500:
+          description: "Internal Server Error"
+        401:
+          description: "Unauthorized Users"
+
+    put:
+      tags:
+        - Update Security Questions
+      operationId: "Update User Security Questions"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      x-google-backend:
+        address: https://us-central1-myecpmma-np-qa.cloudfunctions.net/UserSecurityQuestions-staging
+      parameters:
+        - name: userId
+          in: path
+          description: UserID
+          required: true
+          type: string
+        - in: "body"
+          name: "body"
+          description: "Registration object"
+          required: true
+          schema:
+            $ref: "#/definitions/UpdateSecurityQuestions"
+      responses:
+        405:
+          description: "Invalid input"
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/UpdateSecurityQuestionsResponse"
+        500:
+          description: "Internal Server Error"
+        401:
+          description: "Unauthorized Users"
+    
+  # Update Email Address               
+  /users/{userId}/email-address:
+    options:
+      tags:
+        - User Email Address
+      summary: CORS Pre-flight
+      operationId: corsUpdateEmailAddress
+      x-google-backend:
+        address: "https://us-central1-myecpmma-np-qa.cloudfunctions.net/UserEmailAddress-staging"
+      parameters:
+        - name: userId
+          in: path
+          description: UserID
+          required: true
+          type: string
+      responses:
+        200:
+          description: A successful response   
+    get:
+      tags:
+        - User Email Address
+      operationId: "Get Email Address"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      x-google-backend:
+        address: https://us-central1-myecpmma-np-qa.cloudfunctions.net/UserEmailAddress-staging
+      parameters:
+        - name: userId
+          in: path
+          description: UserID
+          required: true
+          type: string
+      responses:
+        405:
+          description: "Invalid input"
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/GetEmailAddress"
+        500:
+          description: "Internal Server Error"
+        401:
+          description: "Unauthorized Users"    
+    put:
+      tags:
+        - User Email Address
+      operationId: "Update Email Address"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      x-google-backend:
+        address: https://us-central1-myecpmma-np-qa.cloudfunctions.net/UserEmailAddress-staging
+      parameters:
+        - name: userId
+          in: path
+          description: UserID
+          required: true
+          type: string
+        - in: "body"
+          name: "body"
+          description: "Registration object"
+          required: true
+          schema:
+            $ref: "#/definitions/UpdateEmailAddress"
+      responses:
+        405:
+          description: "Invalid input"
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/UpdateEmailAddressResponse"
+        500:
+          description: "Internal Server Error"
+        401:
+          description: "Unauthorized Users"
+
+  # Update Phone Number 
+  /users/{userId}/phone-numbers:
+    options:
+      tags:
+        - Update Phone Number
+      summary: CORS Pre-flight
+      operationId: corsUpdatePhoneNumber
+      x-google-backend:
+        address: "https://us-central1-myecpmma-np-qa.cloudfunctions.net/UserPhoneNumber-staging"
+      parameters:
+        - name: userId
+          in: path
+          description: UserID
+          required: true
+          type: string
+      responses:
+        200:
+          description: A successful response
+    get:
+      tags:
+        - Update Phone Number
+      operationId: "Get Phone Number"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      x-google-backend:
+        address: https://us-central1-myecpmma-np-qa.cloudfunctions.net/UserPhoneNumber-staging
+      parameters:
+        - name: userId
+          in: path
+          description: UserID
+          required: true
+          type: string
+      responses:
+        405:
+          description: "Invalid input"
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/PhoneNumberResponse"
+        500:
+          description: "Internal Server Error"
+        401:
+          description: "Unauthorized Users"
+    put:
+      tags:
+        - Update Phone Number
+      operationId: "Update Phone Number"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      x-google-backend:
+        address: https://us-central1-myecpmma-np-qa.cloudfunctions.net/UserPhoneNumber-staging
+      parameters:
+        - name: userId
+          in: path
+          description: UserID
+          required: true
+          type: string
+        - in: "body"
+          name: "body"
+          description: "Registration object"
+          required: true
+          schema:
+            $ref: "#/definitions/UpdatePhoneNumber"
+      responses:
+        405:
+          description: "Invalid input"
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/UpdatePhoneNumberResponse"
+        500:
+          description: "Internal Server Error"
+        401:
+          description: "Unauthorized Users"
+          
+  # Update Password  
+  /users/{userId}/password:
+    options:
+      tags:
+        - Update Password
+      summary: CORS Pre-flight
+      operationId: corsUpdatePassword
+      parameters:
+        - name: userId
+          in: path
+          description: "UserID"
+          required: true
+          type: string
+      x-google-backend:
+        address: "https://us-central1-myecpmma-np-qa.cloudfunctions.net/UpdatePassword-staging"
+      responses:
+        200:
+          description: A successful response
+    put:
+      tags:
+        - Update Password
+      operationId: "updatePassword"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      x-google-backend:
+        address: https://us-central1-myecpmma-np-qa.cloudfunctions.net/UpdatePassword-staging
+      parameters:
+        - name: userId
+          in: path
+          description: "UserID"
+          required: true
+          type: string
+        - in: "body"
+          name: "body"
+          description: "Update Email Address"
+          required: true
+          schema:
+            $ref: "#/definitions/UpdatePassword"
+      responses:
+        405:
+          description: "Invalid input"
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/UpdatePasswordResponse"
+
+  # Payment
+  /users/{userId}/accounts/{accountNo}/payments:
+    options:
+      tags:
+        - Payment
+      summary: CORS Pre-flight
+      operationId: corsAddPayment
+      x-google-backend:
+        address: "https://us-central1-myecpmma-np-qa.cloudfunctions.net/Payment-staging"
+      parameters:
+        - name: userId
+          in: path
+          description: "UserID"
+          required: true
+          type: string
+        - name: accountNo
+          in: path
+          description: "UserID"
+          required: true
+          type: string
+      responses:
+        200:
+          description: A successful response
+    get:
+      tags:
+        - Payment
+      description: "AddPayment"
+      operationId: "GetPayment"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      x-google-backend:
+        address: https://us-central1-myecpmma-np-qa.cloudfunctions.net/Payment-staging
+      parameters:
+        - name: userId
+          in: path
+          description: "UserID"
+          required: true
+          type: string
+        - name: accountNo
+          in: path
+          description: "UserID"
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Successful response"
+          schema:
+            $ref: "#/definitions/GetPaymentResponse"
+        401:
+          description: "Unauthorized access forbidden"
+        500:
+          description: "Internal Server Error"
+
+    post:
+      tags:
+        - Payment
+      description: "AddPayment"
+      operationId: "AddPayment"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      x-google-backend:
+        address: https://us-central1-myecpmma-np-qa.cloudfunctions.net/Payment-staging
+      parameters:
+        - name: userId
+          in: path
+          description: "UserID"
+          required: true
+          type: string
+        - name: accountNo
+          in: path
+          description: "UserID"
+          required: true
+          type: string
+        - in: "body"
+          name: "body"
+          description: "Add One Time Payment Confirmation"
+          required: true
+          schema:
+            $ref: "#/definitions/AddPaymentRequest"
+      responses:
+        200:
+          description: "Successful response"
+          schema:
+            $ref: "#/definitions/AddPaymentResponse"
+        401:
+          description: "Unauthorized access forbidden"
+        500:
+          description: "Internal Server Error"
+
+  # Payment
+  /users/{userId}/accounts/{accountNo}/payments/{paymentNo}:
+    options:
+      tags:
+        - Payment
+      summary: CORS Pre-flight
+      operationId: corsDeletePayment
+      x-google-backend:
+        address: "https://us-central1-myecpmma-np-qa.cloudfunctions.net/Payment-staging"
+      parameters:
+        - name: userId
+          in: path
+          description: "UserID"
+          required: true
+          type: string
+        - name: accountNo
+          in: path
+          description: "Account Number"
+          required: true
+          type: string
+        - name: paymentNo
+          in: path
+          required: true
+          type: string
+      responses:
+        200:
+          description: A successful response
+    delete:
+      tags:
+        - Payment
+      description: "DeletePayment"
+      operationId: DeletePayment
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      x-google-backend:
+        address: https://us-central1-myecpmma-np-qa.cloudfunctions.net/Payment-staging
+      parameters:
+        - name: userId
+          in: path
+          description: "UserID"
+          required: true
+          type: string
+        - name: accountNo
+          in: path
+          description: "Account Number"
+          required: true
+          type: string
+        - name: paymentNo
+          in: path
+          required: true
+          type: string
+      responses:
+        200:
+          description: "Successful response"
+        401:
+          description: "Unauthorized access forbidden"
+        500:
+          description: "Internal Server Error"
+
+  # Manage Alerts
+  /users/{userId}/alerts:
+    options:
+      tags:
+        - Alerts
+      summary: CORS Pre-flight
+      operationId: corsManageAlerts
+      parameters:
+        - name: userId
+          in: path
+          description: UserID
+          required: true
+          type: string
+      x-google-backend:
+        address: "https://us-central1-myecpmma-np-qa.cloudfunctions.net/Alerts-staging"
+      responses:
+        200:
+          description: A successful response
+    get:
+      tags:
+        - Alerts
+      operationId: "Get Alerts"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      x-google-backend:
+        address: https://us-central1-myecpmma-np-qa.cloudfunctions.net/Alerts-staging
+      parameters:
+        - name: userId
+          in: path
+          description: UserID
+          required: true
+          type: string
+      responses:
+        405:
+          description: "Invalid input"
+        200:
+          description: "Success"
+          schema:
+            $ref: '#/definitions/GetAlerts'
+        500:
+          description: "Internal Server Error"
+        401:
+          description: "Unauthorized Users"
+
+    put:
+      tags:
+        - Alerts
+      operationId: "Update Alerts"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      x-google-backend:
+        address: https://us-central1-myecpmma-np-qa.cloudfunctions.net/Alerts-staging
+      parameters:
+      - name: userId
+        in: path
+        description: UserID
+        required: true
+        type: string
+      - in: "body"
+        name: "body"
+        description: "Registration object"
+        required: true
+        schema:
+          $ref: "#/definitions/Alerts"
+      responses:
+        405:
+          description: "Invalid input"
+        200:
+          description: "Success"
+          schema:
+            $ref: '#/definitions/AlertsResponse'
+        500:
+          description: "Internal Server Error"
+        401:
+          description: "Unauthorized Users"
+
+  # Bank Profile          
+  /users/{userId}/bank-profiles:
+    options:
+      tags:
+        - Bank Profile
+      summary: CORS Pre-flight
+      operationId: corsAccountsBankProfile
+      x-google-backend:
+        address: "https://us-central1-myecpmma-np-qa.cloudfunctions.net/AccountsSummaryBankProfile-staging"
+      parameters:
+      - name: userId
+        in: path
+        required: true
+        type: integer
+        description: User Id
+      responses:
+        200:
+          description: A successful response
+    get:
+      tags:
+        - Bank Profile
+      summary: CORS Pre-flight
+      operationId: AccountsBankProfiles
+      x-google-backend:
+        address: "https://us-central1-myecpmma-np-qa.cloudfunctions.net/AccountsSummaryBankProfile-staging"
+      parameters:
+      - name: userId
+        in: path
+        required: true
+        type: integer
+        description: User Id
+      responses:
+        200:
+          description: A successful response
+  
+  /users/{userId}/accounts/{accountNo}/bank-profiles:
+    options:
+      tags:
+        - Bank Profile
+      summary: CORS Pre-flight
+      operationId: corsBankProfile
+      x-google-backend:
+        address: "https://us-central1-myecpmma-np-qa.cloudfunctions.net/BankProfile-staging"
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          type: integer
+          description: User Id
+        - name: accountNo
+          in: path
+          required: true
+          type: integer
+          description: Account No
+      responses:
+        200:
+          description: A successful response
+    get:
+      tags:
+        - Bank Profile
+      summary: CORS Pre-flight
+      operationId: BankProfiles
+      x-google-backend:
+        address: "https://us-central1-myecpmma-np-qa.cloudfunctions.net/BankProfile-staging"
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          type: integer
+          description: User Id
+        - name: accountNo
+          in: path
+          required: true
+          type: integer
+          description: Account No
+      responses:
+        200:
+          description: A successful response
+    post:
+      tags:
+        - Bank Profile
+      operationId: "Add Bank Profile"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      x-google-backend:
+        address: https://us-central1-myecpmma-np-qa.cloudfunctions.net/BankProfile-staging
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          type: integer
+          description: User Id
+        - name: accountNo
+          in: path
+          required: true
+          type: integer
+          description: Account No
+        - in: "body"
+          name: "body"
+          description: "AddBankProfile"
+          required: true
+          schema:
+            $ref: "#/definitions/AddBankProfileRequest"
+      responses:
+        200:
+          description: "Successful response"
+          schema:
+            $ref: "#/definitions/AddBankProfileResponse"
+        401:
+          description: "Unauthorized Access"
+        500:
+          description: "Internal Server Error"
+    put:
+      tags:
+        - Bank Profile
+      operationId: "Update Bank Profile"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      x-google-backend:
+        address: https://us-central1-myecpmma-np-qa.cloudfunctions.net/BankProfile-staging
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          type: integer
+          description: User Id
+        - name: accountNo
+          in: path
+          required: true
+          type: integer
+          description: Account No
+        - in: "body"
+          name: "body"
+          description: "UpdateBankProfile"
+          required: true
+          schema:
+            $ref: "#/definitions/UpdateBankProfileRequest"
+      responses:
+        200:
+          description: "Successful response"
+          schema:
+            $ref: "#/definitions/UpdateBankProfileResponse"
+        401:
+          description: "Unauthorized Access"
+        500:
+          description: "Internal Server Error"
+  
+  /users/{userId}/accounts/{accountNo}/bank-profiles/{profileNo}:
+    options:
+      tags:
+        - Bank Profile
+      summary: CORS Pre-flight
+      operationId: corsDeleteBankProfile
+      x-google-backend:
+        address: "https://us-central1-myecpmma-np-qa.cloudfunctions.net/BankProfile-staging"
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          type: integer
+          description: User Id
+        - name: accountNo
+          in: path
+          required: true
+          type: integer
+          description: Account No
+        - name: profileNo
+          in: path
+          required: true
+          type: integer
+          description: Account No
+      responses:
+        200:
+          description: A successful response
+    delete:
+      tags:
+        - Bank Profile
+      operationId: "Delete Bank Profile"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      x-google-backend:
+        address: https://us-central1-myecpmma-np-qa.cloudfunctions.net/BankProfile-staging
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          type: integer
+          description: User Id
+        - name: accountNo
+          in: path
+          required: true
+          type: integer
+          description: Account No
+        - name: profileNo
+          in: path
+          required: true
+          type: integer
+          description: Account No
+      responses:
+        200:
+          description: "Successful response"
+        401:
+          description: "Unauthorized Access"
+        500 :
+          description: "Internal Server Error"
+          
+  /captcha:
+    options:
+      tags:
+        - Captcha
+      summary: CORS Pre-flight
+      operationId: corsCaptcha
+      x-google-backend:
+        address: "https://us-central1-myecpmma-np-qa.cloudfunctions.net/Captcha-staging"
+      responses:
+        200:
+          description: A successful response
+    get:
+      tags:
+        - Captcha
+      operationId: "Get Captcha"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      x-google-backend:
+        address: https://us-central1-myecpmma-np-qa.cloudfunctions.net/Captcha-staging
+      responses:
+        200:
+          description: "Successful response"
+        401:
+          description: "Unauthorized access forbidden"
+        500:
+          description: "Internal Server Error"
+  
+  # Authorized User
+  /users/{userId}/accounts/{accountNo}/authorized-users:
+    options:
+      tags:
+        - Manage Authorized Users
+      summary: CORS Pre-flight
+      operationId: corsManageAuthorizedUser
+      x-google-backend:
+        address: "https://us-central1-myecpmma-np-qa.cloudfunctions.net/AuthorizedUsers-staging"
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          type: integer
+          description: User Id
+        - name: accountNo
+          in: path
+          required: true
+          type: integer
+          description: Account Number
+      responses:
+        200:
+          description: A successful response
+    get:
+      tags:
+        - Manage Authorized Users
+      operationId: "Get Authorized Users"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      x-google-backend:
+        address: https://us-central1-myecpmma-np-qa.cloudfunctions.net/AuthorizedUsers-staging
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          type: integer
+          description: User Id
+        - name: accountNo
+          in: path
+          required: true
+          type: integer
+          description: Account Number
+      responses:
+        200:
+          description: "Successful response"
+          schema:
+            $ref: "#/definitions/GetAuthorizedUsersResponse"
+        401:
+          description: "Unauthorized access forbidden"
+        500:
+          description: "Internal Server Error"
+    post:
+      tags:
+        - Manage Authorized Users
+      operationId: "Add Authorized Users"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      x-google-backend:
+        address: https://us-central1-myecpmma-np-qa.cloudfunctions.net/AuthorizedUsers-staging
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          type: integer
+          description: User Id
+        - name: accountNo
+          in: path
+          required: true
+          type: integer
+          description: Account Number
+        - in: "body"
+          name: "body"
+          description: "AddAuthorizedUsers"
+          required: true
+          schema:
+            $ref: "#/definitions/AddAuthorizedUsersRequest"
+      responses:
+        200:
+          description: "Successful response"
+          schema:
+            $ref: "#/definitions/AddAuthorizedUsersResponse"
+        401:
+          description: "Unauthorized Access"
+        500:
+          description: "Internal Server Error"
+
+  /users/{userId}/accounts/{accountNo}/authorized-users-address:
+    options:
+      tags:
+        - Authorized Users Address
+      summary: CORS Pre-flight
+      operationId: corsAuthorizedUsersAddress
+      x-google-backend:
+        address: "https://us-central1-myecpmma-np-qa.cloudfunctions.net/AuthorizedUsersAddress-staging"
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          type: integer
+          description: User Id
+        - name: accountNo
+          in: path
+          required: true
+          type: integer
+          description: Account Number
+      responses:
+        200:
+          description: A successful response
+          schema:
+            $ref: "#/definitions/Address"
+        401:
+          description: "Unauthorized Access"
+        500:
+          description: "Internal Server Error"
+    post:
+      tags:
+        - Authorized Users Address
+      operationId: "Get Authorized Users Address"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      x-google-backend:
+        address: https://us-central1-myecpmma-np-qa.cloudfunctions.net/AuthorizedUsersAddress-staging
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          type: integer
+          description: User Id
+        - name: accountNo
+          in: path
+          required: true
+          type: integer
+          description: Account Number
+        - in: "body"
+          name: "body"
+          description: "AuthorizedUsersAddress"
+          required: true
+          schema:
+            $ref: "#/definitions/AuthorizedUsersAddressRequest"
+      responses:
+        200:
+          description: "Successful response"
+          schema:
+            $ref: "#/definitions/Address"
+        401:
+          description: "Unauthorized Access"
+        500:
+          description: "Internal Server Error"
+
+  /users/{userId}/address:
+    options:
+      tags:
+        - Address
+      operationId: corsUsersAddress
+      summary: CORS Pre-Flight
+      x-google-backend : 
+        address : "https://us-central1-myecpmma-np-qa.cloudfunctions.net/Address-staging"
+      parameters:
+        - name: userId
+          required: true
+          type: string
+          in: path
+      responses:
+        200:
+          description: A successful response
+    get:
+      tags:
+        - Address
+      summary: Get user address
+      description: Update the address of the specified user
+      operationId: "Get User Address"
+      x-google-backend:
+        address: "https://us-central1-myecpmma-np-qa.cloudfunctions.net/Address-staging"
+      parameters:
+        - name: userId
+          type: string
+          in: path
+          description: Username of the user whose address needs to be updated
+          required: true
+      responses:
+        "200":
+          description: Get Address successfully
+          schema:
+            $ref: "#/definitions/Address"
+        "400":
+          description: Invalid username or address data
+        "404":
+          description: User not found
+    put:
+      tags:
+        - Address
+      summary: Update user address
+      description: Update the address of the specified user
+      operationId: "Update User Address"
+      x-google-backend:
+        address: "https://us-central1-myecpmma-np-qa.cloudfunctions.net/Address-staging"
+      parameters:
+        - name: userId
+          type: string
+          in: path
+          description: Username of the user whose address needs to be updated
+          required: true
+        - in: "body"
+          name: "body"
+          description: "Address"
+          required: true
+          schema:
+            $ref: "#/definitions/UpdateAddress"
+      responses:
+        "200":
+          description: Address updated successfully
+          schema:
+            $ref: "#/definitions/AddressResponse"
+        "400":
+          description: Invalid username or address data
+        "404":
+          description: User not found
+
+  /users/{userId}/preferences: 
+    options:
+      tags:
+        - Preference
+      operationId: corsPreferences
+      summary: CORS Pre-Flight
+      x-google-backend : 
+        address : "https://us-central1-myecpmma-np-qa.cloudfunctions.net/Preferences-staging"
+      parameters:
+      - name: userId
+        in: path
+        required: true
+        type: string
+      responses:
+        200:
+          description: A successful response
+    get:
+      tags:
+        - Preference
+      summary: Get communication preferences
+      description: Get communication preference 
+      operationId: getPreferences
+      x-google-backend : 
+        address : "https://us-central1-myecpmma-np-qa.cloudfunctions.net/Preferences-staging"
+      parameters :
+        - name: userId
+          type: string
+          in: path
+          description: Username of the user to add preferences for 
+          required: true
+      responses:
+        '200':
+          description: Get Communication Preferences
+          schema:
+            $ref: "#/definitions/CommunicationPreferences"
+        "400":
+          description: Invalid input
+        "422":
+          description: Validation exception
+    put:
+      tags:
+        - Preference
+      summary: Update the user communication preferences
+      description: Update the user communication preference for a specified user
+      operationId: "Update Communication Preferences"
+      x-google-backend : 
+        address : "https://us-central1-myecpmma-np-qa.cloudfunctions.net/Preferences-staging"
+      parameters: 
+        - name: userId
+          type: string
+          in: path
+          description: name that need to be updated
+          required: true
+        - in: "body"
+          name: "body"
+          description: "Communication Preference"
+          required: true
+          schema:
+            $ref: "#/definitions/CommunicationPreferences"
+      responses:
+        "200":
+          description: Communication preferences updated successfully
+          schema:
+            $ref: "#/definitions/CommunicationPreferencesResponse"
+        '400':
+          description: Invalid username or address data 
+        '404':
+          description: User not found
+
+  # Calculator Settings
+  /calculator-settings:
+    options:
+      tags:
+        - Calculator Settings
+      summary: CORS Pre-flight
+      operationId: corsCalculatorSettings
+      x-google-backend:
+        address: "https://us-central1-myecpmma-np-qa.cloudfunctions.net/CalculatorSettings-staging"
+      responses:
+        200:
+          description: A successful response
+    get:
+      tags:
+        - Calculator Settings
+      description: "Get Calculator Settings"
+      operationId: "Get Calculator Settings"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      x-google-backend:
+        address: "https://us-central1-myecpmma-np-qa.cloudfunctions.net/CalculatorSettings-staging"
+      responses:
+        200:
+          description: "Success"
+          schema:
+            type: "object"
+            properties:
+              InterestRatePerYear:
+                type: string
+                example: "9.99%"
+        401:
+          description: "Unauthorized access forbidden"
+        500:
+          description: "Internal Server Error"
+
+  # Federal Rates
+  /federal-rates:
+    options:
+      tags:
+        - Federal Rates
+      summary: CORS Pre-flight
+      operationId: corsFederalRates
+      x-google-backend:
+        address: "https://us-central1-myecpmma-np-qa.cloudfunctions.net/FederalRates-staging"
+      responses:
+        200:
+          description: A successful response
+    get:
+      tags:
+        - Federal Rates
+      operationId: "getFederalRates"
+      summary: "Get Federal Rates"
+      description: Returns the current Federal Rates
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      x-google-backend:
+        address: "https://us-central1-myecpmma-np-qa.cloudfunctions.net/FederalRates-staging"
+      responses:
+        200:
+          description: "Successful response"
+          schema:
+            $ref: "#/definitions/getFederalRatesResponse"
+        401:
+          description: "Unauthorized access forbidden"
+        500:
+          description: "Internal Server Error"
+
+  # State Infos
+  /states:
+    options:
+      tags:
+        - State Information
+      summary: CORS Pre-flight
+      operationId: corsStateInfos
+      x-google-backend:
+        address: "https://us-central1-myecpmma-np-qa.cloudfunctions.net/StateInfos-staging"
+      responses:
+        200:
+          description: A successful response
+    get:
+      tags:
+        - State Information
+      operationId: "Get State List"
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      x-google-backend:
+        address: https://us-central1-myecpmma-np-qa.cloudfunctions.net/StateInfos-staging
+      responses:
+        405:
+          description: "Invalid input"
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/StateInfosResponse"
+        500:
+          description: "Internal Server Error"
+        401:
+          description: "Unauthorized Users"
+  
+  /timezones:
+    options:
+      tags:
+        - Time Zone Information
+      summary: CORS Pre-flight
+      operationId: corsTimeZones
+      x-google-backend:
+        address: "https://us-central1-myecpmma-np-qa.cloudfunctions.net/TimeZones-staging"
+      responses:
+        200:
+          description: A successful response
+    get:
+      tags:
+        - Time Zone Information
+      operationId: "Get TimeZone List"
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      x-google-backend:
+        address: https://us-central1-myecpmma-np-qa.cloudfunctions.net/TimeZones-staging
+      responses:
+        405:
+          description: "Invalid input"
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/TimeZonesResponse"
+        500:
+          description: "Internal Server Error"
+        401:
+          description: "Unauthorized Users"
+          # State Infos
+  
+  /times:
+    options:
+      tags:
+        - Time Information
+      summary: CORS Pre-flight
+      operationId: corsTimeInfos
+      x-google-backend:
+        address: "https://us-central1-myecpmma-np-qa.cloudfunctions.net/TimeInfos-staging"
+      responses:
+        200:
+          description: A successful response
+    get:
+      tags:
+        - Time Information
+      operationId: "Get Times List"
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      x-google-backend:
+        address: https://us-central1-myecpmma-np-qa.cloudfunctions.net/TimeInfos-staging
+      responses:
+        405:
+          description: "Invalid input"
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/TimeInfosResponse"
+        500:
+          description: "Internal Server Error"
+        401:
+          description: "Unauthorized Users"
+  
+  # Ask Security Questions
+  /ask-security-questions:
+    options:
+      tags:
+        - Ask Security Questions
+      summary: CORS Pre-flight
+      operationId: corsAskSecurityQuestions
+      x-google-backend:
+        address: "https://us-central1-myecpmma-np-qa.cloudfunctions.net/AskSecurityQuestion-staging"      
+      responses:
+        200:
+          description: A successful response
+    post:
+      tags:
+        - Ask Security Questions
+      description: "Ask Security Questions"
+      operationId: "Ask Security Questions"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      x-google-backend:
+        address: "https://us-central1-myecpmma-np-qa.cloudfunctions.net/AskSecurityQuestion-staging"
+      parameters:
+        - in: "body"
+          name: "body"
+          description: "AskSecurityQuestion"
+          required: true
+          schema:
+            $ref: "#/definitions/AskSecurityQuestionsRequest"
+      responses:
+        200:
+          description: "Successful response"
+          schema:
+            items: { 
+              $ref: "#/definitions/AskSecurityQuestionsResponse" 
+            }
+        405:
+          description: "Invalid input"
+
+  /verify-security-questions:
+    options:
+      tags:
+        - Ask Security Questions
+      summary: CORS Pre-flight
+      operationId: corsVerifySecurityQuestions
+      x-google-backend:
+        address: "https://us-central1-myecpmma-np-qa.cloudfunctions.net/VerifySecurityQuestion-staging"      
+      responses:
+        200:
+          description: A successful response
+    post:
+      tags:
+        - Ask Security Questions
+      description: "Verify Security Questions"
+      operationId: "Verify Security Questions"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      x-google-backend:
+        address: "https://us-central1-myecpmma-np-qa.cloudfunctions.net/VerifySecurityQuestion-staging"
+      parameters:
+        - in: "body"
+          name: "body"
+          description: "VerifySecurityQuestion"
+          required: true
+          schema:
+            $ref: "#/definitions/VerifySecurityQuestionRequest"
+      responses:
+        200:
+          description: "Successful response"
+          schema:
+            $ref: "#/definitions/VerifySecurityQuestionResponse"
+        405:
+          description: "Invalid input"
+
+  /reset-security-questions:
+    options:
+      tags:
+        - Ask Security Questions
+      summary: CORS Pre-flight
+      operationId: corsResetSecurityQuestions
+      x-google-backend:
+        address: "https://us-central1-myecpmma-np-qa.cloudfunctions.net/ResetSecurityQuestion-staging"
+      parameters:
+        - in: "query"
+          name: "token"
+          type: "string"
+          description: "token"
+      responses:
+        200:
+          description: A successful response   
+    
+    get:
+      tags:
+        - Ask Security Questions
+      description: "Reset Security Questions"
+      operationId: "Reset Security Questions"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      x-google-backend:
+        address: "https://us-central1-myecpmma-np-qa.cloudfunctions.net/ResetSecurityQuestion-staging"
+      parameters:
+        - in: "query"
+          type: "string"
+          name: "token"
+          description: "token"
+      responses:
+        200:
+          description: "Successful response"
+          schema:
+            $ref: "#/definitions/ResetSecurityQuestionResponse"
+        405:
+          description: "Invalid input"
+
+  /ask-two-fa:
+    options:
+      tags:
+        - 2FA
+      summary: CORS Pre-flight
+      operationId: corsAskTwoFa
+      x-google-backend:
+        address: "https://us-central1-myecpmma-np-qa.cloudfunctions.net/Get2FAInfo-staging"
+      responses:
+        200:
+          description: A successful response       
+    post:
+      tags:
+        - 2FA
+      description: "Send OTP"
+      operationId: "Ask Two Fa"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      x-google-backend:
+        address: "https://us-central1-myecpmma-np-qa.cloudfunctions.net/Get2FAInfo-staging"
+      parameters:
+        - in: "body"
+          name: "body"
+          description: "SendOTP"
+          required: true
+          schema:
+            $ref: "#/definitions/AskTwoFARequest"
+      responses:
+        200:
+          description: "Successful response"
+          schema:
+            $ref: "#/definitions/AskTwoFAResponse"
+        405:
+          description: "Invalid input"
+  
+  /send-otp:
+    options:
+      tags:
+        - 2FA
+      summary: CORS Pre-flight
+      operationId: corsSendOTP
+      x-google-backend:
+        address: "https://us-central1-myecpmma-np-qa.cloudfunctions.net/SendOTP-staging"
+      responses:
+        200:
+          description: A successful response       
+    post:
+      tags:
+        - 2FA
+      description: "Send OTP"
+      operationId: "Send OTP"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      x-google-backend:
+        address: "https://us-central1-myecpmma-np-qa.cloudfunctions.net/SendOTP-staging"
+      parameters:
+        - in: "body"
+          name: "body"
+          description: "SendOTP"
+          required: true
+          schema:
+            $ref: "#/definitions/SendOTPRequest"
+      responses:
+        200:
+          description: "Successful response"
+          schema:
+            $ref: "#/definitions/SendOTPResponse"
+        405:
+          description: "Invalid input"
+
+  /verify-otp:
+    options:
+      tags:
+        - 2FA
+      summary: CORS Pre-flight
+      operationId: corsVerifyOTP
+      x-google-backend:
+        address: "https://us-central1-myecpmma-np-qa.cloudfunctions.net/VerifyOTP-staging"
+      responses:
+        200:
+          description: A successful response       
+    
+    post:
+      tags:
+        - 2FA
+      description: "Verify OTP"
+      operationId: "Verify OTP"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      x-google-backend:
+        address: "https://us-central1-myecpmma-np-qa.cloudfunctions.net/VerifyOTP-staging"
+      parameters:
+        - in: "body"
+          name: "body"
+          description: "VerifyOTP"
+          required: true
+          schema:
+            $ref: "#/definitions/VerifyOTPRequest"
+      responses:
+        200:
+          description: "Successful response"
+          schema:
+            $ref: "#/definitions/VerifyOTPResponse"
+        405:
+          description: "Invalid input"
+
+  /customerads:
+    options:
+      tags:
+        - Customer Ads Information
+      summary: CORS Pre-flight
+      operationId: corsCustomerAds
+      x-google-backend:
+        address: "https://us-central1-myecpmma-np-qa.cloudfunctions.net/CustomerAds-staging"
+      parameters:
+        - name: pageName
+          in: query
+          description: Page Name
+          type: string
+      responses:
+        200:
+          description: A successful response
+    get:
+      tags:
+        - Customer Ads Information
+      operationId: "Get Customer Ads Information"
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      x-google-backend:
+        address: https://us-central1-myecpmma-np-qa.cloudfunctions.net/CustomerAds-staging
+      parameters:
+        - name: pageName
+          in: query
+          description: Page Name
+          type: string
+      responses:
+        405:
+          description: "Invalid input"
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/CustomerAdsResponse"
+        500:
+          description: "Internal Server Error"
+        401:
+          description: "Unauthorized Users"
+  
+  /static-pages:
+    options:
+      tags:
+        - Static Page Information
+      summary: CORS Pre-flight
+      operationId: corsStaticPage
+      x-google-backend:
+        address: "https://us-central1-myecpmma-np-qa.cloudfunctions.net/StaticPages-staging"
+      parameters:
+        - name: pageName
+          in: query
+          description: Page Name
+          type: string
+      responses:
+        200:
+          description: A successful response
+    get:
+      tags:
+        - Static Page Information
+      operationId: "Get Static Page Information"
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      x-google-backend:
+        address: https://us-central1-myecpmma-np-qa.cloudfunctions.net/StaticPages-staging
+      parameters:
+        - name: pageName
+          in: query
+          description: Page Name
+          type: string
+      responses:
+        405:
+          description: "Invalid input"
+        200:
+          description: "Success"
+        500:
+          description: "Internal Server Error"
+        401:
+          description: "Unauthorized Users"
+  
+  /users/{userId}/user-info:
+    options:
+      tags:
+        - User Info
+      summary: CORS Pre-flight
+      operationId: corsUserInfo
+      x-google-backend:
+        address: "https://us-central1-myecpmma-np-qa.cloudfunctions.net/UserInfo-staging"
+      parameters:
+      - name: userId
+        in: path
+        required: true
+        type: integer
+        description: User Id
+      responses:
+        200:
+          description: A successful response
+    get:
+      tags:
+        - User Info
+      summary: CORS Pre-flight
+      operationId: UserInfo
+      x-google-backend:
+        address: "https://us-central1-myecpmma-np-qa.cloudfunctions.net/UserInfo-staging"
+      parameters:
+      - name: userId
+        in: path
+        required: true
+        type: integer
+        description: User Id
+      responses:
+        200:
+          description: A successful response
+ 
+# Definitions
+definitions:
+  # Login Request
+  LoginRequest:
+    type: "object"
+    required:
+      - "userName"
+      - "password"
+    properties:
+      UserName:
+        type: "string"
+        example: "test"
+      Password:
+        type: "string"
+        example: "test"
+
+  # Login Response
+  LoginResponse:
+    type: "object"
+    properties:
+      UserId:
+        type: number
+        example: 5414
+      UserName:
+        type: string
+        example: ericddev
+      FirstName:
+        type: string
+        example: Michael
+      LastName:
+        type: string
+        example: Hurd
+      MiddleName: 
+        type: string
+        example: X
+      LastLoginDate:
+        type: string
+        example: "05:40 AM CST 03 Apr 2024"
+      Token:
+        type: string
+        example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiZXJpY2RkZXYiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9naXZlbm5hbWUiOiJNSUNIQUVMIEhVUkQiLCJleHAiOjE3MTIxNjMyMzUsImlzcyI6Ik15RUNQIiwiYXVkIjoiTXlFQ1AifQ.Vm0kv9uHdPB2x8gg9rttfz5CFn75637ibki5UoicNZs"
+      Expiration:
+        type: string
+        example: "2024-04-03T16:53:55Z"
+
+  # Logout Request
+  LogoutRequest:
+    type: "object"
+    required:
+      - "userName"
+      - "token"
+    properties:
+      userName:
+        type: "string"
+        example: "test"
+      token:
+        type: "string"
+        example: "test"
+
+  # Logout Response
+  LogoutResponse:
+    type: "object"
+    properties:
+      Messsage:
+        type: "string"
+        example: "Logout is Successful"
+
+  #GetSecurityQuestionsResponse:
+  GetSecurityQuestionsResponse:
+    type: object
+    properties:
+      Question1:
+        type: "number"
+        example: 100
+      Answer1:
+        type: "string"
+        example: "test"
+      Question2:
+        type: "number"
+        example: 101
+      Answer2:
+        type: "string"
+        example: "test"
+      Question3:
+        type: number
+        example: 102
+      Answer3:
+        type: "string"
+        example: "test"
+
+  ApplyCard:
+    type: object
+    properties:
+      CardApplyingFor:
+        type: string
+      FirstName:
+        type: string
+        example: Mark
+      MiddleInitial:
+        type: string
+        example: John
+      LastName:
+        type: string
+        example: Antony
+      Suffix:
+        type: string
+        example: Mr
+      DOB:
+        type: string
+        example: 02/03/1998
+      SSN:
+        type: integer
+        example: 897123309
+      Address1:
+        type: string
+        example: 40 J/1 John Street
+      Address2:
+        type: string
+        example: 2nd floor GEX Apartment
+      City:
+        type: string
+        example: Coimbatore
+      State:
+        type: string
+        example: TamilNadu
+      ZipCode:
+        type: integer
+        example: 640031
+      YearsAtAddress:
+        type: integer
+        example: 8
+      MonthsAtAddress:
+        type: integer
+        example: 10
+      MonthlyIncome:
+        type: number
+        example: 55000
+      Employer:
+        type: string
+        example: ChangeCX
+      YearsAtEmployer:
+        type: integer
+        example: 3
+      MonthsAtEmployer:
+        type: integer
+        example: 4
+      MotherMaiden:
+        type: string
+        example: Elisa
+      Email:
+        type: string
+        example: abc@gmail.com
+      MonthlyRent:
+        type: number
+        example: 12000
+      MobileNo:
+        type: number
+        example: 9876543210
+      AcceptTerms1:
+        type: string
+        example: true
+      AcceptTerms2:
+        type: string
+        example: true
+      UserId:
+        type: integer
+        example: jklHdE
+        
+  ApplyCardResponse:
+    type: object
+    properties:
+      Id:
+        type: string
+  
+  ApplyCardGetSecurityQuestionsRequest:
+    type: object
+    properties:
+      ID:
+        type: integer
+      UserId:
+        type: integer
+
+  ApplyCardGetSecurityQuestionsResponse:
+    type: object
+    properties:
+      ID:
+        type: integer
+      UserId:
+        type: integer
+      SecurityQuestions:
+        type: "array"
+        items: { 
+          $ref: "#/definitions/ApplyCardSecurityQuestions" 
+        }      
+  
+  ApplyCardValidateSecurityQuestionsRequest:
+    type: object
+    properties:
+      ID:
+        type: integer
+      UserId:
+        type: integer
+      SecurityQuestions:
+        type: "array"
+        items: { 
+          $ref: "#/definitions/ApplyCardSecurityQuestions" 
+        }      
+
+  ApplyCardValidateSecurityQuestionsResponse:
+    type: object
+    properties:
+      Id:
+        type: string
+
+  ApplyCardSecurityQuestions:
+    type: object
+    properties:
+      QuestionID:
+        type: integer
+      Question:
+        type: string
+
+
+  AddressResponse:
+    type: object
+    properties:
+      Response:
+        type: string
+        example: Updated Successfully
+       
+  UpdateAddress:
+    type: object
+    properties:
+      StreetName:
+        type: string
+      AptOrSuitOrRoomNumber:
+        type: string
+      City:
+        type: string
+      StateAbv:
+        type: string
+      Zip:
+        type: string
+      CurrentPassword:
+        type: string
+        example: Password@123
+    
+  GetEmailAddress:
+    type: object
+    properties:
+      EmailAddress:
+        type: string
+        example: sample@gmail.com
+
+  PhoneNumberResponse:
+    type: object
+    properties:
+      ContactNo:
+        type: string
+        example: 9876543321
+      MobileNo:
+        type: string
+        example: 9876543321
+      WorkNo:
+        type: string
+        example: 9876543321
+      SMS_OPT_IN:
+        type: boolean
+      SMS_OPT_IN_CODE:
+        type: string
+      SmsTimePrefrence:
+        type: number
+      TimeZoneID:
+        type: string
+      FromHour:
+        type: string
+      ToHour:
+        type: string
+
+  UpdatePhoneNumber:
+    type: object
+    properties:
+      ContactNo:
+        type: string
+        example: 9876543321
+      MobileNo:
+        type: string
+        example: 9876543321
+      WorkNo:
+        type: string
+        example: 9876543321
+      SMS_OPT_IN:
+        type: boolean
+      SMS_OPT_IN_CODE:
+        type: string
+      SmsTimePrefrence:
+        type: number
+      TimeZoneID:
+        type: string
+      FromHour:
+        type: string
+      ToHour:
+        type: string
+      CurrentPassword:
+        type: string
+        example: Password@123
+
+  UpdatePhoneNumberResponse:
+    type: object
+    properties:
+      Response:
+        type: string
+        example: Updated Successfully
+
+  UpdateEmailAddress:
+    type: object
+    properties:
+      EmailAddress:
+        type: string
+        example: nomail@gmail.com
+      ConfirmEmailAddress:
+        type: string
+        example: nomail@gmail.com
+      CurrentPassword:
+        type: string
+        example: Password@123
+
+  UpdateEmailAddressResponse:
+    type: object
+    properties:
+      Response:
+        type: string
+        example: Updated Successfully
+
+  ApplyCardStatusResponse:
+    type: object
+    properties:
+      ApplicationNumber:
+        type: number
+        example: 20247986465874560
+      ApplicationType:
+        type: string
+        example: Military Clothing
+
+  OfferDetailsResponse:
+    type: object
+    properties:
+      ResponseType:
+        type: string
+        example: Success
+      ReasonCode:
+        type: integer
+        example: 456
+      Description:
+        type: string
+        example: New Offers only for you, Grab it
+      CustomerOfferId:
+        type: integer
+        example: 342
+      StartDate:
+        type: integer
+        example: 05/05/2024
+      EndDate:
+        type: string
+        example: 12/06/2024
+      OfferTitle:
+        type: string
+        example: Good Friday Offer
+      OfferDescription:
+        type: string
+        example: Memorable sales slogans and taglines are the earworms of marketing. Learn what makes a great one and how to harness its power to accelerate sales.
+      OfferSummary:
+        type: string
+        example: Memorable sales slogans and taglines are the earworms of marketing. Learn what makes a great one and how to harness its power to accelerate sales.
+      FullTerms:
+        type: string
+        example: When it comes to sales, customers value both quality and affordability. This slogan emphasizes the combination of high-quality products or services with affordable prices, making it an attractive proposition for potential customers.
+
+  #OffersListResponse
+  OffersListResponse:
+    type: object
+    properties:
+      ResponseType:
+        type: string
+        example: success
+      ReasonCode:
+        type: integer
+        example: 5
+      TotalOffers:
+        type: integer
+        example: 4
+      Offers:
+        type: "array"
+        items: { $ref: "#/definitions/Offers" }
+
+  Offers:
+    type: object
+    properties:
+      CustomerOfferId:
+        type: integer
+        example: 434
+      OfferId:
+        type: string
+        example: offer2
+      LocationId:
+        type: integer
+        example: 66
+      StartDate:
+        type: integer
+        example: 05/05/2024
+      EndDate:
+        type: string
+        example: 12/06/2024
+      OfferOrder:
+        type: integer
+        example: 99
+      OfferAvailability:
+        type: integer
+        example: 345
+      OfferTitle:
+        type: string
+        example: Good Friday Offer
+      OfferTagLine:
+        type: string
+        example: ExcitingOffer
+
+  OffersList:
+    type: object
+    required:
+      - LocationId
+      - OfferAvailability
+    properties:
+      LocationId:
+        type: integer
+        example: 5
+      OfferAvailability:
+        type: integer
+        example: 66
+
+  # Security Questions Response
+  UpdateSecurityQuestionsResponse:
+    type: "object"
+    properties:      
+      message:
+        type: "string"
+        example: "Your profile have been Successfully Updated"
+
+  # Reward Points Response
+  RewardPointsResponse:
+    type: "object"
+    properties:
+      StatementDate:
+        type: "string"
+        example: "05/06/2022"
+      BeginPoint:
+        type: integer
+        example: 6
+      PointEarned:
+        type: integer
+        example: 10
+      PointDisbursed:
+        type: "string"
+        example: 5
+      PointAdjusted:
+        type: integer
+        example: 10
+      PointEnd:
+        type: integer
+        example: 1
+
+  # AccountSummary Response
+  AccountSummaryResponse:
+    type: "object"
+    properties:
+      ProductTypeDesc:
+        type: "string"
+        example: "abcde"
+      AccountNumber:
+        type: "number"
+        example: 767689978979865
+      AccountNumberLast4:
+        type: "number"
+        example: 4321
+      TotalAuthorizedUsers:
+        type: "number"
+        example: 2
+      CurrentBalance:
+        type: "number"
+        example: 1300
+      MinimumPaymentDue:
+        type: "number"
+        example: 768
+      IsMinimumPaymentDue:
+        type: "boolean"
+        example: false
+      PaymentDueDate:
+        type: "string"
+        example: "1/05/2022"
+      TotalCreditLimit:
+        type: "number"
+        example: 678970
+      AvailableCredit:
+        type: "number"
+        example: 4450
+      RetailCreditLimit:
+        type: "number"
+        example: 1000
+      MilitaryClothingCreditLimit:
+        type: "number"
+        example: 290
+      TotalMemoBalance:
+        type: "number"
+        example: 290
+      RetailMemoBalance:
+        type: "number"
+        example: 290
+      MilitaryClothingMemoBalance:
+        type: "number"
+        example: 290
+      TotalAvailableCredit:
+        type: "number"
+        example: 290
+      RetailAvailableCredit:
+        type: "number"
+        example: 290
+      MilitaryClothingAvailableCredit:
+        type: "number"
+        example: 290
+      PaymentPastDue:
+        type: "number"
+        example: 0
+      CurrentMinimumPaymentDue:
+        type: "number"
+        example: 890
+      LastPaymentDate:
+        type: "string"
+        example: "03/04/2023"
+      LastPaidAmount:
+        type: "number"
+        example: 300
+      LastPurchaseDate:
+        type: "number"
+        example: 290
+      LastPurchaseAmount:
+        type: "number"
+        example: 290
+      DisputedAmount:
+        type: "number"
+        example: 290
+      PromoCurrentBalance:
+        type: "number"
+        example: 290
+      HasPromoBalance:
+        type: "number"
+        example: 290
+      IsStatementOnline:
+        type: "number"
+        example: 290
+      hasACHAllowed:
+        type: "boolean"
+        example: true
+      CoBrandStatus:
+        type: "string"
+        example: "test"
+      IsEnolledInPaperlessStatement:
+        type: "boolean"
+        example: "true"
+      IsInstallmentPlanAvailable:
+        type: "boolean"
+        example: "true"
+      IsPrimaryUser:
+        type: "boolean"
+        example: "true"
+      HasClothingOptionOrRemainingClothingBalance:
+        type: "boolean"
+        example: "true"
+      CloseProductType:
+        type: "string"
+        example: "test"
+      AllowChasePaymentOption:
+        type: "boolean"
+        example: "test"
+      AllowACHOption:
+        type: "boolean"
+        example: "test"
+      LoyaltyPoints:
+        type: "number"
+        example: 5
+      LastStatementBalance:
+        type: "number"
+        example: 2500
+      LastStatementDate:
+        type: "string"
+        example: "09/01/2022"
+      RecentCharges:
+        type: "number"
+        example: 342
+      RecentChargesDate:
+        type: "string"
+        example: "04/02/2022"
+      RetailCurrentBalance:
+        type: "number"
+        example: 4500
+      CashCurrentBalance:
+        type: "number"
+        example: 3000
+      MilitaryClothingOTB:
+        type: "number"
+        example: 3000
+      RetailOTB:
+        type: "number"
+        example: 3000
+
+  AccountRestrictionResponse:
+    type: object
+    properties:
+      AccountNo:
+        type: string
+      CanViewAccountSummary:
+        type: boolean
+      CanViewAccountActivity:
+        type: boolean
+      CanMakeOrEditPayment:
+        type: boolean
+      CanAddOrEditPaymentProfile:
+        type: boolean
+      CanViewPaymentHistory:
+        type: boolean
+      CanReportLostOrStolenCard:
+        type: boolean
+      CanUpdateContactInformation:
+        type: boolean
+      CanManageAuthorizedUsers:
+        type: boolean
+      CanCloseOrUpdateAccount:
+        type: boolean
+      AlertMessages:
+        type: "array"
+        items:
+          $ref: "#/definitions/RestrictionsAlertMessages"
+        
+        
+  RestrictionsAlertMessages:
+    type: object
+    properties:
+      Title:
+        type: string
+        example: CycleDueAlert-Test
+      Message:
+        type: string
+        example: Cycleduealert-Test
+      SeverityType:
+        type: number
+        example: 50
+        
+  ContactInfo:
+    type: object
+    properties:
+      Email:
+        type: string
+      MobileNumber:
+        type: number
+      Address1:
+        type: string
+      Address2:
+        type: string
+      City:
+        type: string
+      State:
+        type: string
+      PinCode:
+        type: string
+      AuthorizedUsers:
+        type: string
+      
+  ContactInfoResponse:
+    type: object
+    properties:
+      Response:
+        type: string
+        example: Success
+
+  #PlanResponse
+  PlanResponse:
+    type: object
+    properties:
+      PlanNo:
+        type: string
+        example: one
+      Rec:
+        type: string
+        example: rec
+      StoreNumber:
+        type: string
+        example: storenumber
+      CurrentBalance:
+        type: number
+        example: 3000
+      TotalDue:
+        type: number
+        example: 1500
+      PlanType:
+        type: string
+        example: Installment Type
+      AccountNo:
+        type: number
+        example: 90098787775656641
+      OpenDate:
+        type: string
+        example: 02/02/2023
+      APR:
+        type: number
+        example: 10
+      ExpirationDate:
+        type: string
+        example: 03/05/2023
+      PlanTypeDescription:
+        type: string
+        example: Plan Type Description
+      InstOrgTerms:
+        type: integer
+        example: 2
+      InstRemTerm:
+        type: integer
+        example: 5
+      InstCurrentTerm:
+        type: integer
+        example: 9
+      InstMonthlyPayment:
+        type: number
+        example: 3600.5
+      InstPrincipalBalance:
+        type: number
+        example: 3000
+      InstInterestRem:
+        type: number
+        example: 9000
+      InstRemBalance:
+        type: number
+        example: 1200
+      InstPaymentDue:
+        type: number
+        example: 67
+      InstPaymentDueDate:
+        type: string
+        example: 3/6/23
+      PaidOutDate:
+        type: string
+        example: 05/07/23
+
+  # Statements
+  StatementsResponse:
+    type: "object"
+    properties:
+      Index:
+        type: number
+        example: 1
+      Description:
+        type: string
+        example: true
+        
+  MMAStatementsResponse:
+    type: object
+    properties:
+      tranDescription:
+        type: string
+        example: Payment - Thank You
+      transactionDate:
+        type: string
+        example: '01/11/2022'
+      transactionType:
+        type: string
+        example: INTEREST CREDIT ADJUSTMENT
+      transactionAmount:
+        type: number
+        example: 60
+      ticketNumber:
+        type: number
+        example: 345
+      planNumber:
+        type: string
+        example: 1034
+      planName:
+        type: string
+        example: EXCHANGE RETAIL
+      planBalance:
+        type: number
+        example: 670
+
+  # Recent Activity Response:
+  RecentActivityResponse:
+    type: "object"
+    properties:
+      EffectiveDate:
+        type: string
+      ExchangeName:
+        type: string
+      Amount:
+        type: number
+        example: 200
+      TransactionType:
+        type: string
+        example: "test"
+      TicketNo:
+        type: string
+        example: "test"
+      PlanNo:
+        type: string
+        example: "test"
+      PlanDesc:
+        type: string
+        example: "test"
+      PostingDate:
+        type: string
+      IsPending:
+        type: boolean
+      IsPayment:
+        type: boolean
+      CanDispute:
+        type: boolean
+      TransTypeDetails:
+        type: string
+
+  # Payment History Response
+  PaymentHistoryResponse:
+    type: "object"
+    properties:
+      EffectiveDate:
+        type: "string"
+        example: "02/10/2022"
+      Amount:
+        type: "number"
+        example: 6700
+      PostingDate:
+        type: "string"
+        example: "10/10/2023"
+      Plans:
+        type: "array"
+        items:
+          $ref: "#/definitions/PaymentHistoryPlanResponse"
+
+  PaymentHistoryPlanResponse:
+    type: "object"
+    properties:
+      PlanNo:
+        type: "string"
+        example: "Number1"
+      PlanDescription:
+        type: "string"
+        example: "Plan Description"
+      Amount:
+        type: "number"
+        example: 7000
+
+  # Update Password
+  UpdatePassword:
+    type: "object"
+    required:
+      - "CurrentPassword"
+      - "NewPassword"
+      - "ConfirmPassword"
+    properties:
+      CurrentPassword:
+        type: "string"
+        example: test
+      NewPassword:
+        type: "string"
+        example: "test"
+      ConfirmPassword:
+        type: "string"
+        example: "test"
+
+  # UpdatePasswordResponse
+  UpdatePasswordResponse:
+    type: "object"
+    properties:
+      message:
+        type: "string"
+        example: "Password Updated Successfully"
+
+  # Update Security Questions
+  UpdateSecurityQuestions:
+    type: "object"
+    required:
+    - "QuestionID1"
+    - "Answer1"
+    - "QuestionID2"
+    - "Answer2"
+    - "QuestionID3"
+    - "Answer3"
+    - "CurrentPassword"
+    properties:
+      QuestionID1:
+        type: "string"
+        example: "test"
+      Answer1:
+        type: "string"
+        example: "test"
+      QuestionID2:
+        type: "string"
+        example: "test"
+      Answer2:
+        type: "string"
+        example: "test"
+      QuestionID3:
+        type: "string"
+        example: "test"
+      Answer3:
+        type: "string"
+        example: "test"
+      CurrentPassword:
+        type: string
+        example: test
+
+  # Forgot User Name
+  ForgotUserNameRequest:
+    type: "object"
+    required:
+      - "LastName"
+      - "SSNLast5"
+      - "DOB_Day"
+      - "DOB_Month"
+      - "DOB_Year"
+    properties:
+      LastName:
+        type: "string"
+        example: "test"
+      SSNLast5:
+        type: "string"
+        example: "test"
+      DOB_Day:
+        type: "string"
+        example: "test"
+      DOB_Month:
+        type: "string"
+        example: "test"
+      DOB_Year:
+        type: "string"
+        example: "test"
+                    
+  # Forgot User Name
+  ForgotUserNameResponse:
+    type: "object"
+    properties:
+      UserName:
+        type: "string"
+        example: "ericddev"
+                  
+  Alerts:
+    type: "object"
+    properties:
+      IsTwoFactorAuthenticationEmail:
+        type: "boolean"
+        example: "true"
+      IsTwoFactorAuthenticationText:
+        type: "boolean"
+        example: "true"
+      IsPaymentReceivedEmail:
+        type: "boolean"
+        example: "true"
+      IsPaymentReceivedText:
+        type: "boolean"
+        example: "true"
+      PaymentReminderDueDays:
+        type: "number"
+        example: "5"
+      IsPaymentReminderEmail:
+        type: "boolean"
+        example: "true"
+      IsPaymentReminderText:
+        type: "boolean"
+        example: "true"
+      IsStatementReadyEmail:
+        type: "boolean"
+        example: "true"
+      IsStatementReadyText:
+        type: "boolean"
+        example: "true"
+      IsPastDueReminderEmail:
+        type: "boolean"
+        example: "true"
+      IsPastDueReminderText:
+        type: "boolean"
+        example: "true"
+      TransactionAmount:
+        type: "number"
+        example: "1500"
+      IsTransactionAmountEmail:
+        type: "boolean"
+        example: "true"
+      IsTransactionAmountText:
+        type: "boolean"
+        example: "true"
+      CurrentBalance:
+        type: "number"
+        example: "1200"
+      IsCurrentBalanceEmail:
+        type: "boolean"
+        example: "true"
+      IsCurrentBalanceText:
+        type: "boolean"
+        example: "true"
+      AvailableBalance:
+        type: "number"
+        example: "1000"
+      IsAvailableBalanceEmail:
+        type: "boolean"
+        example: "true"
+      IsAvailableBalanceText:
+        type: "boolean"
+        example: "true"
+      IsCardNotPresentEmail:
+        type: "boolean"
+        example: "true"
+      IsCardNotPresentText:
+        type: "boolean"
+        example: "true"
+      CurrentPassword:
+        type: "string"
+        
+  GetAlerts:
+    type: "object"
+    properties:
+      IsTwoFactorAuthenticationEmail:
+        type: "boolean"
+        example: "true"
+      IsTwoFactorAuthenticationText:
+        type: "boolean"
+        example: "true"
+      IsPaymentReceivedEmail:
+        type: "boolean"
+        example: "true"
+      IsPaymentReceivedText:
+        type: "boolean"
+        example: "true"
+      PaymentReminderDueDays:
+        type: "number"
+        example: "5"
+      IsPaymentReminderEmail:
+        type: "boolean"
+        example: "true"
+      IsPaymentReminderText:
+        type: "boolean"
+        example: "true"
+      IsStatementReadyEmail:
+        type: "boolean"
+        example: "true"
+      IsStatementReadyText:
+        type: "boolean"
+        example: "true"
+      IsPastDueReminderEmail:
+        type: "boolean"
+        example: "true"
+      IsPastDueReminderText:
+        type: "boolean"
+        example: "true"
+      TransactionAmount:
+        type: "number"
+        example: "1500"
+      IsTransactionAmountEmail:
+        type: "boolean"
+        example: "true"
+      IsTransactionAmountText:
+        type: "boolean"
+        example: "true"
+      CurrentBalance:
+        type: "number"
+        example: "1200"
+      IsCurrentBalanceEmail:
+        type: "boolean"
+        example: "true"
+      IsCurrentBalanceText:
+        type: "boolean"
+        example: "true"
+      AvailableBalance:
+        type: "number"
+        example: "1000"
+      IsAvailableBalanceEmail:
+        type: "boolean"
+        example: "true"
+      IsAvailableBalanceText:
+        type: "boolean"
+        example: "true"
+      IsCardNotPresentEmail:
+        type: "boolean"
+        example: "true"
+      IsCardNotPresentText:
+        type: "boolean"
+        example: "true"
+      IsUserOptedForAnyAlert:
+        type: boolean
+        example: true
+      IsUserEnrollForSMSAlert:
+        type: boolean
+        example: false
+      IsUserOptedForTwoFA:
+        type: boolean
+        example: true
+      IsUserOptedForTwoFAEmail:
+        type: boolean
+        example: false
+      IsUserOptedForTwoFAText:
+        type: boolean
+        example: true
+  
+  AlertsResponse:
+    type: "object"
+    properties:
+      message:
+        type: "string"
+        example: Updated Successfully
+        
+  # Forgot User Password
+  ForgotPasswordRequest:
+    type: "object"
+    required:
+      - "UserName"
+      - "SSNLast5"
+      - "DOB_Day"
+      - "DOB_Month"
+      - "DOB_Year"
+    properties:
+      UserName:
+        type: "string"
+        example: "test"
+      SSNLast5:
+        type: "string"
+        example: "test"
+      DOB_Day:
+        type: "string"
+        example: "test"
+      DOB_Month:
+        type: "string"
+        example: "test"
+      DOB_Year:
+        type: "string"
+        example: "test"
+
+  # Forgot User Response
+  ForgotPasswordResponse:
+    type: "object"
+    properties:
+      Question1Id:
+        type: integer
+        example: 1
+      Question1Text:
+        type: "string"
+        example: "What is your native place"
+      Question2Id:
+        type: integer
+        example: 2
+      Question2Text:
+        type: "string"
+        example: "What is your best friend name"
+
+  # Forgot User Name SQ
+  ForgotPasswordSQRequest:
+    type: "object"
+    required:
+      - "UserName"
+      - "Question1Id"
+      - "Question1Text"
+      - "Answer1"
+      - "Question2Id"
+      - "Question2Text"
+      - "Answer2"
+    properties:
+      UserName:
+        type: "string"
+        example: "MMACCXPrime1"
+      Question1Id:
+        type: integer
+        example: 1
+      Question1Text:
+        type: "string"
+        example: "What is your native place"
+      Answer1:
+        type: "string"
+        example: "Coimbatore"
+      Question2Id:
+        type: integer
+        example: 2
+      Question2Text:
+        type: "string"
+        example: "What is your best friend name"
+      Answer2:
+        type: "string"
+        example: "Test"
+
+  # Forgot User Password SQ Response
+  ForgotPasswordSQResponse:
+    type: "object"
+    properties:
+      message:
+        type: "string"
+        example: "Security Answers validation is successful"
+
+  # Reset Password Request
+  ResetPasswordRequest:
+    type: "object"
+    properties:
+      UserName:
+        type: "string"
+        example: "MMACCXPrime1"
+      NewPassword:
+        type: "string"
+        example: "Test"
+      ConfirmPassword:
+        type: "string"
+        example: "Test"
+
+  # Reset Password Response
+  ResetPasswordResponse:
+    type: "object"
+    properties:
+      message:
+        type: "string"
+        example: "Successful"
+
+  Users:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+        example: 10
+      username:
+        type: string
+        example: theUser
+      firstName:
+        type: string
+        example: John
+      lastName:
+        type: string
+        example: James
+      email:
+        type: string
+        example: john@email.com
+      password:
+        type: string
+        example: "12345"
+      phone:
+        type: string
+        example: "12345"
+      userStatus:
+        type: integer
+        description: User Status
+        format: int32
+        example: 1
+      communicationPreferences:
+        $ref: "#/definitions/CommunicationPreferences"
+
+  CommunicationPreferences:
+    type: object
+    properties:
+      IsStatementEmail:
+        type: boolean
+      IsLegalNoticeEmail:
+        type: boolean
+      IsExchangeCreditPromotion:
+        type: boolean
+        
+  CommunicationPreferencesResponse:
+    type: object
+    properties:
+      Message:
+        type: string
+        example: Updated Successfully
+      
+  Address: 
+    type: object
+    properties:
+      StreetName:
+        type: string
+      AptOrSuitOrRoomNumber:
+        type: string
+      City:
+        type: string
+      StateAbv:
+        type: string
+      Zip:
+        type: string
+
+  # Delete PaymentProfile
+  DeletePaymentProfileRequest:
+    type: "object"
+    properties:
+      ProfileId:
+        type: "integer"
+        description: "ID of the payment profile to delete"
+    required:
+      - "ProfileId"
+
+  DeletePaymentProfileResponse:
+    type: "object"
+    properties:
+      success:
+        type: "boolean"
+        description: "Indicates whether the deletion was successful or not"
+      message:
+        type: "string"
+        description: "A descriptive message indicating the result of the deletion"
+    required:
+      - "success"
+      - "message"
+
+  GetPaymentResponse:
+    type: object
+    properties:
+      AccountNo:
+        type: string
+      PaymentNo:
+        type: integer
+      PaymentId:
+        type: string
+      ProfileNo:
+        type: integer
+      ProfileName:
+        type: string
+      StartDate:
+        type: string
+      Amount:
+        type: integer
+      PaymentOptionCode:
+        type: string
+      PaymentOptionDesc: 
+        $ref: "#/definitions/PaymentOptionResponse"
+      PaymentFrequencyCode:
+        type: string
+      PaymentFrequencyDesc: 
+        $ref: "#/definitions/PaymentOptionResponse"
+
+  PaymentOptionResponse:
+    type: object
+    properties:
+      Code:
+        type: string
+      Description:
+        type: string
+      
+  #Add OneTime Payment
+  AddPaymentRequest:
+    type: object
+    properties:
+      ProfileNo:
+        type: string
+      PaymentType:
+        type: string
+      PaymentOption:
+        type: string
+      PaymentDate:
+        type: string
+      OtherAmountValue:
+        type: string
+
+  # Add OneTime Payment
+  AddPaymentResponse:
+    type: object
+    properties:
+      message:
+        type: string
+  
+  # Registration - Card Info
+  CardInfoRequest:
+    type: "object"
+    required:
+      - "CardNumber"
+      - "ExpirationMonth"
+      - "ExpirationYear"
+      - "SocialSecurityNumber"
+      - "SecurityCode"
+      - "DateOfBirth"
+      - "EmailAddress"
+      - "ConfirmEmailAddress"
+    properties:
+      CardNumber:
+        type: number
+        example: 56432176543298098
+      ExpirationMonth:
+        type: number
+        example: 04
+      ExpiratonYear:
+        type: number
+        example: 2031
+      SocialSecurityNumber:
+        type: number
+        example: 345234098
+      SecurityCode:
+        type: number
+        example: 123
+      DateOfBirth:
+        type: string
+        example: 02/03/1999
+      EmailAddress:
+        type: string
+        example: leodass@gmail.com
+      ConfirmEmailAddress:
+        type: string
+        example: leodass@gmail.com
+
+  CardInfoResponse:
+    type: object
+    properties:
+      Response:
+        type: string
+        example: Success
+
+  # Registration - Email Validation
+  EmailValidationRequest:
+    type: object
+    properties:
+      EmailAddress:
+        type: string
+        example: leodass@gmail.com
+
+  EmailValidationResponse:
+    type: object
+    properties:
+      Response:
+        type: string
+        example: Validation Done
+
+  # Registration - Create Profile
+  CreateProfileRequest:
+    type: "object"
+    required:
+      - UserId
+      - Password
+      - ConfirmPassword
+      - HomePhoneNumber
+      - SecurityQuestion1
+      - Answer1
+      - SecurityQuestion2
+      - Answer2
+      - SecurityQuestion3
+      - Answer3
+    properties:
+      UserId:
+        type: string
+        example: kbrkannan
+      Password:
+        type: string
+        example: Password@123
+      ConfirmPassword:
+        type: string
+        example: Password@123
+      HomePhoneNumber:
+        type: number
+        example: 9876543210
+      MobilePhoneNumber:
+        type: number
+        example: 9867464643
+      WorkPhoneNumber:
+        type: number
+        example: 8757575656
+      SecurityQuestion1:
+        type: string
+        example: Childhood Friend
+      Answer1:
+        type: string
+        example: Raja
+      SecurityQuestion2:
+        type: string
+        example: First School
+      Answer2:
+        type: string
+        example: SanJose
+      SecurityQuestion3:
+        type: string
+        example: Favorite Color
+      Answer3:
+        type: string
+        example: Red
+
+  CreateProfileResponse:
+    type: object
+    properties:
+      Response:
+        type: string
+        example: Registration Successfull
+
+  # Bank profile
+  DeleteBankProfileResponse:
+    type: object
+    properties:
+      message:
+        type: string
+        description: "A message indicating the result of the operation."
+
+  AddBankProfileRequest:
+    type: "object"
+    properties:
+      ProfileNumber:
+        type: "integer"
+        description: "The profile number."
+      ProfileName:
+        type: "string"
+        description: "The nickname for the profile."
+      RoutingNumber:
+        type: "string"
+        description: "The routing number."
+      AccountNumber:
+        type: "string"
+        description: "The ECP account number."
+        
+    required:
+      - ProfileNumber
+      - ProfileName
+      - RoutingNumber
+      - AccountNumber
+
+  AddBankProfileResponse:
+    type: "object"
+    properties:
+      message:
+        type: "string"
+        
+  UpdateBankProfileRequest:
+    type: "object"
+    properties:
+      ProfileNumber:
+        type: "integer"
+        description: "The profile number."
+      ProfileName:
+        type: "string"
+        description: "The nickname for the profile."
+      RoutingNumber:
+        type: "string"
+        description: "The routing number."
+      AccountNumber:
+        type: "string"
+        description: "The ECP account number."      
+    required:
+      - ProfileNumber
+      - ProfileName
+      - RoutingNumber
+      - AccountNumber
+    
+  UpdateBankProfileResponse:
+    type: "object"
+    properties:
+      message:
+        type: "string"
+        description: "Indicates if the profile addition was successful."
+
+  GetAuthorizedUsersResponse:
+    type: "object"
+    properties:
+      FullName:
+        type: "string"
+      AddedOn:
+        type: "string"
+
+  AddAuthorizedUsersRequest:
+    type: "object"
+    properties:
+      FirstName:
+        type: "string"
+      MiddleName:
+        type: "string"
+      LastName:
+        type: "string"
+      SSN:
+        type: "integer"
+        example: 273457987098
+      IsUsingTempAddress:
+        type: boolean
+      BillingAddress:
+        $ref: "#/definitions/Address"
+      TempAddress:
+        $ref: "#/definitions/Address"
+
+  AddAuthorizedUsersResponse:
+    type : "object"
+    properties :
+      message :
+        type: "string"
+        example: Authorized User successfully Added
+  
+  AuthorizedUsersAddressRequest:
+    type: "object"
+    properties:
+      FirstName:
+        type: "string"
+      MiddleName:
+        type: "string"
+      LastName:
+        type: "string"
+      SSN:
+        type: "integer"
+        example: 273457987098
+
+  # State Infos Response
+  StateInfosResponse:
+    type: "object"
+    properties:
+      Id:
+        type: "number"
+        example: 12345
+      State:
+        type: "string"
+      Abbreviation:
+        type: "string"
+
+  SecurityQuestionsResponse:
+    type: object
+    properties:
+      ECPUsersCommonQuestionID:
+        type: number
+        example: 1
+      QuestionID:
+        type: number
+        example: 1
+      Question:
+        type: string
+        example: What is your birth place?
+      CreatedDate:
+        type: string
+        example: 14/03/2024
+
+  getFederalRatesResponse:
+    type: "object"
+    properties:
+      APR:
+        type: "number"
+      PNLTY_APR:
+        type: "number"
+      PRIME_RATE:
+        type: "number"
+      DLY_APR_PIR:
+        type: "number"
+      PNLTY_DLY_PIR:
+        type: "number"
+      EFF_DATE:
+        type: "string"
+      Month:
+        type: "string"
+
+  # Time Infos Response
+  TimeInfosResponse:
+    type: "object"
+    properties:
+      Text:
+        type: "string"
+      Value:
+        type: "string"
+  
+  # Time Zones Response
+  TimeZonesResponse:
+    type: "object"
+    properties:
+      Abbreviation:
+        type: "string"
+      DisplayName:
+        type: "string"
+      TimeZoneID:
+        type: "string"
+
+  #Pending Security Questions
+  AskSecurityQuestionsRequest:
+    type: "object"
+    properties :
+      UserName :
+        type : string  
+  AskSecurityQuestionsResponse:
+    type: "object"
+    properties :
+      QuestionId :
+        type : integer
+        example: What was the name of your high school?
+      Question :
+        type : string
+        example: What was the name of your high school?
+
+  VerifySecurityQuestionRequest:
+    type: "object"
+    properties :
+      UserId:
+        type: integer
+      QuestionID:
+        type: "string"
+      Answer:
+        type: "string"
+  
+  VerifySecurityQuestionResponse:
+    type : "object"
+    properties:
+      UserId:
+        type: number
+        example: 5414
+      UserName:
+        type: string
+        example: ericddev
+      FirstName:
+        type: string
+        example: Michael
+      LastName:
+        type: string
+        example: Hurd
+      MiddleName: 
+        type: string
+        example: X
+      LastLoginDate:
+        type: string
+        example: "05:40 AM CST 03 Apr 2024"
+      Token:
+        type: string
+        example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiZXJpY2RkZXYiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9naXZlbm5hbWUiOiJNSUNIQUVMIEhVUkQiLCJleHAiOjE3MTIxNjMyMzUsImlzcyI6Ik15RUNQIiwiYXVkIjoiTXlFQ1AifQ.Vm0kv9uHdPB2x8gg9rttfz5CFn75637ibki5UoicNZs"
+      Expiration:
+        type: string
+        example: "2024-04-03T16:53:55Z"
+  
+  ResetSecurityQuestionRequest:
+    type: "object"
+    properties :
+      UserId:
+        type: integer
+      QuestionID:
+        type: "string"
+      Answer:
+        type: "string"
+  
+  ResetSecurityQuestionResponse:
+    type : "object"
+    properties:
+      message:
+        type: "string"
+        description: "successfully Logged In"
+    required:
+      - "message"
+
+  SendOTPRequest:
+    type: "object"
+    properties :
+      UserId:
+        type: integer
+      OtpOption:
+        type: "string"
+  
+  SendOTPResponse:
+    type : "object"
+    properties:
+      Otp:
+        type: "string"
+  
+  VerifyOTPRequest:
+    type: "object"
+    properties :
+      UserId:
+        type: integer
+      Otp:
+        type: "string"
+      EnteredOtp:
+        type: "string"
+  
+  VerifyOTPResponse:
+    type : "object"
+    properties:
+      UserId:
+        type: number
+        example: 5414
+      UserName:
+        type: string
+        example: ericddev
+      FirstName:
+        type: string
+        example: Michael
+      LastName:
+        type: string
+        example: Hurd
+      MiddleName: 
+        type: string
+        example: X
+      LastLoginDate:
+        type: string
+        example: "05:40 AM CST 03 Apr 2024"
+      Token:
+        type: string
+        example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiZXJpY2RkZXYiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9naXZlbm5hbWUiOiJNSUNIQUVMIEhVUkQiLCJleHAiOjE3MTIxNjMyMzUsImlzcyI6Ik15RUNQIiwiYXVkIjoiTXlFQ1AifQ.Vm0kv9uHdPB2x8gg9rttfz5CFn75637ibki5UoicNZs"
+      Expiration:
+        type: string
+        example: "2024-04-03T16:53:55Z"
+
+# Customer Ad Response
+  CustomerAdsResponse:
+    type: "object"
+    properties:
+      PageTitle:
+        type: "string"
+      AdList:
+        type: "array"
+        items:
+          $ref: "#/definitions/AdResponse"
+  
+  AdResponse:
+    type: "object"
+    properties:
+      Title:
+        type: "string"
+      Message:
+        type: "string"
+
+  AskTwoFARequest:
+    type: "object"
+    properties :
+      UserName:
+        type: "string"
+  
+  AskTwoFAResponse:
+    type: "object"
+    properties:
+      UserId:
+        type: number
+        example: 5414
+      UserName:
+        type: string
+        example: ericddev
+      FirstName:
+        type: string
+        example: Michael
+      LastName:
+        type: string
+        example: Hurd
+      MiddleName: 
+        type: string
+        example: X
+      LastLoginDate:
+        type: string
+        example: "05:40 AM CST 03 Apr 2024"
+      Token:
+        type: string
+        example: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiZXJpY2RkZXYiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9naXZlbm5hbWUiOiJNSUNIQUVMIEhVUkQiLCJleHAiOjE3MTIxNjMyMzUsImlzcyI6Ik15RUNQIiwiYXVkIjoiTXlFQ1AifQ.Vm0kv9uHdPB2x8gg9rttfz5CFn75637ibki5UoicNZs"
+      Expiration:
+        type: string
+        example: "2024-04-03T16:53:55Z"

@@ -1,0 +1,11 @@
+{
+  "name": "offer-details",
+  "version": "0.0.1",
+  "scripts": {
+    "start": "functions-framework --target=OfferDetails"
+  },
+  "dependencies": {
+    "axios": "^1.6.8",
+    "functions-framework": "^0.6.10"
+  }
+}

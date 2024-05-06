@@ -1,0 +1,501 @@
+steps:
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions', 'deploy', 'Login-uat',
+    '--gen2',
+    '--source', './src/Login',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--set-secrets=env_var=myecp-uat:latest'
+  ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions', 'deploy', 'Logout-uat',
+    '--gen2',
+    '--source', './src/Logout',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--set-secrets=env_var=myecp-uat:latest'
+  ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions','deploy','ForgotUserName-uat',
+    '--gen2',
+    '--source', './src/ForgotUserName',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--set-secrets=env_var=myecp-uat:latest'
+  ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions','deploy','ForgotPassword-uat',
+    '--gen2',
+    '--source', './src/Password/ForgotPassword',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--set-secrets=env_var=myecp-uat:latest'
+  ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions','deploy','ForgotPasswordSQ-uat',
+    '--gen2',
+    '--source', './src/Password/ForgotPasswordSQ',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--set-secrets=env_var=myecp-uat:latest'
+  ] 
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions','deploy','ResetPassword-uat',
+    '--gen2',
+    '--source', './src/Password/ResetPassword',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--set-secrets=env_var=myecp-uat:latest'
+  ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions','deploy','SecurityQuestions-uat',
+    '--gen2',
+    '--source', './src/SecurityQuestions',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--set-secrets=env_var=myecp-uat:latest'
+  ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions', 'deploy', 'CardInfo-uat',
+    '--gen2',
+    '--source', './src/Registration/CardInfo',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--set-secrets=env_var=myecp-uat:latest'
+  ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions','deploy','EmailValidation-uat',
+    '--gen2',
+    '--source', './src/Registration/EmailValidation',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--set-secrets=env_var=myecp-uat:latest'
+  ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions','deploy','CreateProfile-uat',
+    '--gen2',
+    '--source', './src/Registration/CreateProfile',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--set-secrets=env_var=myecp-uat:latest'
+  ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions','deploy','AccountSummary-uat',
+    '--gen2',
+    '--source', './src/AccountSummary',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--set-secrets=env_var=myecp-uat:latest'
+  ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions','deploy','RecentActivity-uat',
+    '--gen2',
+    '--source', './src/RecentActivity',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--set-secrets=env_var=myecp-uat:latest'
+  ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions','deploy','PaymentHistory-uat',
+    '--gen2',
+    '--source', './src/PaymentHistory',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--set-secrets=env_var=myecp-uat:latest'
+  ] 
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions','deploy','Statements-uat',
+    '--gen2',
+    '--source', './src/Statements/GetStatements',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--set-secrets=env_var=myecp-uat:latest'
+  ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions','deploy','ViewStatements-uat',
+    '--gen2',
+    '--source', './src/Statements/ViewStatements',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--set-secrets=env_var=myecp-uat:latest'
+    ]    
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+      'functions','deploy','StatementDetails-uat',
+      '--gen2',
+      '--source', './src/Statements/StatementDetails',
+      '--trigger-http',
+      '--runtime', 'nodejs18',
+      '--region', 'us-central1',
+      '--env-vars-file', '.env.yaml'
+    ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions','deploy','RewardPoints-uat',
+    '--gen2',
+    '--source', './src/RewardPoints',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--set-secrets=env_var=myecp-uat:latest'
+    ]   
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+      'functions','deploy','OverAllRewardPoints-uat',
+      '--gen2',
+      '--source', './src/OverAllRewardPoints',
+      '--trigger-http',
+      '--runtime', 'nodejs18',
+      '--region', 'us-central1',
+      '--env-vars-file', '.env.yaml'
+    ]  
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions','deploy','Plans-uat',
+    '--gen2',
+    '--source', './src/Plans',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--set-secrets=env_var=myecp-uat:latest'
+    ]
+  - name: 'gcr.io/cloud-builders/gcloud' 
+    args: [
+    'functions','deploy','CalculatorSettings-uat',
+    '--gen2',
+    '--source', './src/CalculatorSettings',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--set-secrets=env_var=myecp-uat:latest'
+    ]
+  - name: 'gcr.io/cloud-builders/gcloud' 
+    args: [
+    'functions','deploy','StateInfos-uat',
+    '--gen2',
+    '--source', './src/StateInfos',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--set-secrets=env_var=myecp-uat:latest'
+    ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions','deploy','Offers-uat',
+    '--gen2',
+    '--source', './src/Offers/Offers',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--set-secrets=env_var=myecp-uat:latest'
+    ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions','deploy','OfferDetails-uat',
+    '--gen2',
+    '--source', './src/Offers/OfferDetails',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--set-secrets=env_var=myecp-uat:latest'
+    ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions', 'deploy', 'Payment-uat',
+    '--gen2',
+    '--source', './src/Payment',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--set-secrets=env_var=myecp-uat:latest'
+    ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions', 'deploy', 'Alerts-uat',
+    '--gen2',
+    '--source', './src/Alerts',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--set-secrets=env_var=myecp-uat:latest'
+    ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions', 'deploy', 'UpdatePassword-uat',
+    '--gen2',
+    '--source', './src/Password/UpdatePassword',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--set-secrets=env_var=myecp-uat:latest'
+    ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions', 'deploy', 'AuthorizedUsers-uat',
+    '--gen2',
+    '--source', './src/AuthorizedUsers/AuthorizedUsers',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--set-secrets=env_var=myecp-uat:latest'
+    ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions', 'deploy', 'AuthorizedUsersAddress-uat',
+    '--gen2',
+    '--source', './src/AuthorizedUsers/AuthorizedUsersAddress',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--set-secrets=env_var=myecp-uat:latest'
+    ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions', 'deploy', 'Address-uat',
+    '--gen2',
+    '--source', './src/Address',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--set-secrets=env_var=myecp-uat:latest'
+    ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions', 'deploy', 'AccountsSummaryBankProfile-uat',
+    '--gen2',
+    '--source', './src/AccountsSummaryBankProfile',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--set-secrets=env_var=myecp-uat:latest'
+    ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions', 'deploy', 'BankProfile-uat',
+    '--gen2',
+    '--source', './src/BankProfile',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--set-secrets=env_var=myecp-uat:latest'
+    ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions','deploy','ApplyCard-uat',
+    '--gen2',
+    '--source', './src/Card/ApplyCard',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--set-secrets=env_var=myecp-uat:latest'
+    ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions','deploy','PendingStatus-uat',
+    '--gen2',
+    '--source', './src/Card/PendingStatus',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--set-secrets=env_var=myecp-uat:latest'
+    ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions','deploy','ApprovedCard-uat',
+    '--gen2',
+    '--source', './src/Card/ApprovedCard',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--set-secrets=env_var=myecp-uat:latest'
+    ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions','deploy','UserRestrictions-uat',
+    '--gen2',
+    '--source', './src/UserRestrictions',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--set-secrets=env_var=myecp-uat:latest'
+    ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions','deploy','Preferences-uat',
+    '--gen2',
+    '--source', './src/Preferences',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--set-secrets=env_var=myecp-uat:latest'
+    ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions','deploy','SecurityQuestions-uat',
+    '--gen2',
+    '--source', './src/SecurityQuestions',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--set-secrets=env_var=myecp-uat:latest'
+    ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions','deploy','UserEmailAddress-uat',
+    '--gen2',
+    '--source', './src/UserEmailAddress',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--set-secrets=env_var=myecp-uat:latest'
+    ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions','deploy','UserPhoneNumber-uat',
+    '--gen2',
+    '--source', './src/UserPhoneNumber',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--set-secrets=env_var=myecp-uat:latest'
+    ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions','deploy','UserSecurityQuestions-uat',
+    '--gen2',
+    '--source', './src/UserSecurityQuestions',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--set-secrets=env_var=myecp-uat:latest'
+    ] 
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions','deploy','FederalRates-uat',
+    '--gen2',
+    '--source', './src/FederalRates',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--set-secrets=env_var=myecp-uat:latest'
+    ] 
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions','deploy','Address-uat',
+    '--gen2',
+    '--source', './src/Address',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--set-secrets=env_var=myecp-uat:latest'
+    ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions','deploy','TimeZones-uat',
+    '--gen2',
+    '--source', './src/TimeZones',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--set-secrets=env_var=myecp-uat:latest'
+    ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions','deploy','TimeInfos-uat',
+    '--gen2',
+    '--source', './src/TimeInfos',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--set-secrets=env_var=myecp-uat:latest'
+    ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions','deploy','AskSecurityQuestion-uat',
+    '--gen2',
+    '--source', './src/AskSecurityQuestion',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--set-secrets=env_var=myecp-uat:latest'
+    ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions','deploy','ResetSecurityQuestion-uat',
+    '--gen2',
+    '--source', './src/ResetSecurityQuestion',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--set-secrets=env_var=myecp-uat:latest'
+    ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions','deploy','SendOTP-uat',
+    '--gen2',
+    '--source', './src/2FA/SendOTP',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--set-secrets=env_var=myecp-uat:latest'
+    ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions','deploy','VerifyOTP-uat',
+    '--gen2',
+    '--source', './src/2FA/VerifyOTP',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--set-secrets=env_var=myecp-uat:latest'
+    ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions','deploy','CustomerAds-uat',
+    '--gen2',
+    '--source', './src/CustomerAds',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--set-secrets=env_var=myecp-uat:latest'
+    ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions','deploy','StaticPages-uat',
+    '--gen2',
+    '--source', './src/StaticPages',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--set-secrets=env_var=myecp-uat:latest'
+    ]

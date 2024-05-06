@@ -1,0 +1,11 @@
+{
+  "name": "user-restrictions",
+  "version": "0.0.1",
+  "scripts": {
+    "start": "functions-framework --target=UserRestrictions"
+  },
+  "dependencies": {
+    "axios": "^1.6.8",
+    "functions-framework": "^0.6.10"
+  }
+}

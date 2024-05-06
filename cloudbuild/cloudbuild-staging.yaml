@@ -1,0 +1,611 @@
+steps:
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions', 'deploy', 'Login-staging',
+    '--gen2',
+    '--source', './src/Login',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--env-vars-file', '.env.yaml'
+  ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions', 'deploy', 'Logout-staging',
+    '--gen2',
+    '--source', './src/Logout',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--env-vars-file', '.env.yaml'
+  ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions','deploy','ForgotUserName-staging',
+    '--gen2',
+    '--source', './src/ForgotUserName',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--env-vars-file', '.env.yaml'
+  ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions','deploy','ForgotPassword-staging',
+    '--gen2',
+    '--source', './src/Password/ForgotPassword',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--env-vars-file', '.env.yaml'
+  ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions','deploy','ForgotPasswordSQ-staging',
+    '--gen2',
+    '--source', './src/Password/ForgotPasswordSQ',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--env-vars-file', '.env.yaml'
+  ] 
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions','deploy','ResetPassword-staging',
+    '--gen2',
+    '--source', './src/Password/ResetPassword',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--env-vars-file', '.env.yaml'
+  ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions','deploy','SecurityQuestions-staging',
+    '--gen2',
+    '--source', './src/SecurityQuestions',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--env-vars-file', '.env.yaml'
+  ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions', 'deploy', 'CardInfo-staging',
+    '--gen2',
+    '--source', './src/Registration/CardInfo',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--env-vars-file', '.env.yaml'
+  ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions','deploy','EmailValidation-staging',
+    '--gen2',
+    '--source', './src/Registration/EmailValidation',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--env-vars-file', '.env.yaml'
+  ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions','deploy','CreateProfile-staging',
+    '--gen2',
+    '--source', './src/Registration/CreateProfile',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--env-vars-file', '.env.yaml'
+  ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions','deploy','AccountSummary-staging',
+    '--gen2',
+    '--source', './src/AccountSummary',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--env-vars-file', '.env.yaml'
+  ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions','deploy','StatementDetails-staging',
+    '--gen2',
+    '--source', './src/Statements/StatementDetails',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--env-vars-file', '.env.yaml'
+    ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions','deploy','ContactInfo-staging',
+    '--gen2',
+    '--source', './src/ContactInfo',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--env-vars-file', '.env.yaml'
+    ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+      'functions','deploy','AccountSummaryByAccountNo-staging',
+      '--gen2',
+      '--source', './src/AccountSummaryByAccountNo',
+      '--trigger-http',
+      '--runtime', 'nodejs18',
+      '--region', 'us-central1',
+      '--env-vars-file', '.env.yaml'
+    ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions','deploy','RecentActivity-staging',
+    '--gen2',
+    '--source', './src/RecentActivity',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--env-vars-file', '.env.yaml'
+  ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions','deploy','PaymentHistory-staging',
+    '--gen2',
+    '--source', './src/PaymentHistory',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--env-vars-file', '.env.yaml'
+  ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions','deploy','Statements-staging',
+    '--gen2',
+    '--source', './src/Statements/GetStatements',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--env-vars-file', '.env.yaml'
+  ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions','deploy','ViewStatements-staging',
+    '--gen2',
+    '--source', './src/Statements/ViewStatements',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--env-vars-file', '.env.yaml'
+    ]  
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+      'functions','deploy','StatementDetails-staging',
+      '--gen2',
+      '--source', './src/Statements/StatementDetails',
+      '--trigger-http',
+      '--runtime', 'nodejs18',
+      '--region', 'us-central1',
+      '--env-vars-file', '.env.yaml'
+    ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions','deploy','RewardPoints-staging',
+    '--gen2',
+    '--source', './src/RewardPoints',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--env-vars-file', '.env.yaml'
+    ]   
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+      'functions','deploy','OverAllRewardPoints-staging',
+      '--gen2',
+      '--source', './src/OverAllRewardPoints',
+      '--trigger-http',
+      '--runtime', 'nodejs18',
+      '--region', 'us-central1',
+      '--env-vars-file', '.env.yaml'
+    ]  
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions','deploy','Plans-staging',
+    '--gen2',
+    '--source', './src/Plans',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--env-vars-file', '.env.yaml'
+    ]
+  - name: 'gcr.io/cloud-builders/gcloud' 
+    args: [
+    'functions','deploy','CalculatorSettings-staging',
+    '--gen2',
+    '--source', './src/CalculatorSettings',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--env-vars-file', '.env.yaml'
+    ]
+  - name: 'gcr.io/cloud-builders/gcloud' 
+    args: [
+    'functions','deploy','StateInfos-staging',
+    '--gen2',
+    '--source', './src/StateInfos',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--env-vars-file', '.env.yaml'
+    ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+      'functions', 'deploy', 'Captcha-staging',
+      '--gen2',
+      '--source', './src/Captcha',
+      '--trigger-http',
+      '--runtime', 'nodejs18',
+      '--region', 'us-central1',
+      '--env-vars-file', '.env.yaml'
+    ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+      'functions', 'deploy', 'AuthorizedUsersAddress-staging',
+      '--gen2',
+      '--source', './src/AuthorizedUsers/AuthorizedUsersAddress',
+      '--trigger-http',
+      '--runtime', 'nodejs18',
+      '--region', 'us-central1',
+      '--env-vars-file', '.env.yaml'
+    ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions','deploy','Offers-staging',
+    '--gen2',
+    '--source', './src/Offers/Offers',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--env-vars-file', '.env.yaml'
+    ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions','deploy','OfferDetails-staging',
+    '--gen2',
+    '--source', './src/Offers/OfferDetails',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--env-vars-file', '.env.yaml'
+    ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions', 'deploy', 'Payment-staging',
+    '--gen2',
+    '--source', './src/Payment',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--env-vars-file', '.env.yaml'
+    ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions', 'deploy', 'Alerts-staging',
+    '--gen2',
+    '--source', './src/Alerts',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--env-vars-file', '.env.yaml'
+    ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions', 'deploy', 'UpdatePassword-staging',
+    '--gen2',
+    '--source', './src/Password/UpdatePassword',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--env-vars-file', '.env.yaml'
+    ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions', 'deploy', 'AuthorizedUsers-staging',
+    '--gen2',
+    '--source', './src/AuthorizedUsers/AuthorizedUsers',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--env-vars-file', '.env.yaml'
+    ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions', 'deploy', 'AuthorizedUsersAddress-staging',
+    '--gen2',
+    '--source', './src/AuthorizedUsers/AuthorizedUsersAddress',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--env-vars-file', '.env.yaml'
+    ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions', 'deploy', 'Address-staging',
+    '--gen2',
+    '--source', './src/Address',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--env-vars-file', '.env.yaml'
+    ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions', 'deploy', 'AccountsSummaryBankProfile-staging',
+    '--gen2',
+    '--source', './src/AccountsSummaryBankProfile',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--env-vars-file', '.env.yaml'
+    ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions', 'deploy', 'BankProfile-staging',
+    '--gen2',
+    '--source', './src/BankProfile',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--env-vars-file', '.env.yaml'
+    ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions','deploy','ApplyCard-staging',
+    '--gen2',
+    '--source', './src/Card/ApplyCard',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--env-vars-file', '.env.yaml'
+    ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+      'functions','deploy','ApplyCardValidateSecurityQuestions-staging',
+      '--gen2',
+      '--source', './src/Card/ValidateSecurityQuestions',
+      '--trigger-http',
+      '--runtime', 'nodejs18',
+      '--region', 'us-central1',
+      '--env-vars-file', '.env.yaml'
+    ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+      'functions','deploy','ApplyCardSecurityQuestions-staging',
+      '--gen2',
+      '--source', './src/Card/GetSecurityQuestions',
+      '--trigger-http',
+      '--runtime', 'nodejs18',
+      '--region', 'us-central1',
+      '--env-vars-file', '.env.yaml'
+    ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions','deploy','PendingStatus-staging',
+    '--gen2',
+    '--source', './src/Card/PendingStatus',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--env-vars-file', '.env.yaml'
+    ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions','deploy','ApprovedCard-staging',
+    '--gen2',
+    '--source', './src/Card/ApprovedCard',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--env-vars-file', '.env.yaml'
+    ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions','deploy','UserRestrictions-staging',
+    '--gen2',
+    '--source', './src/UserRestrictions',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--env-vars-file', '.env.yaml'
+    ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions','deploy','Preferences-staging',
+    '--gen2',
+    '--source', './src/Preferences',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--env-vars-file', '.env.yaml'
+    ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions','deploy','SecurityQuestions-staging',
+    '--gen2',
+    '--source', './src/SecurityQuestions',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--env-vars-file', '.env.yaml'
+    ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions','deploy','UserEmailAddress-staging',
+    '--gen2',
+    '--source', './src/UserEmailAddress',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--env-vars-file', '.env.yaml'
+    ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions','deploy','UserPhoneNumber-staging',
+    '--gen2',
+    '--source', './src/UserPhoneNumber',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--env-vars-file', '.env.yaml'
+    ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions','deploy','UserSecurityQuestions-staging',
+    '--gen2',
+    '--source', './src/UserSecurityQuestions',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--env-vars-file', '.env.yaml'
+    ] 
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions','deploy','FederalRates-staging',
+    '--gen2',
+    '--source', './src/FederalRates',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--env-vars-file', '.env.yaml'
+    ] 
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions','deploy','Address-staging',
+    '--gen2',
+    '--source', './src/Address',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--env-vars-file', '.env.yaml'
+    ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions','deploy','TimeZones-staging',
+    '--gen2',
+    '--source', './src/TimeZones',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--env-vars-file', '.env.yaml'
+    ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions','deploy','TimeInfos-staging',
+    '--gen2',
+    '--source', './src/TimeInfos',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--env-vars-file', '.env.yaml'
+    ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions','deploy','AskSecurityQuestion-staging',
+    '--gen2',
+    '--source', './src/AskSecurityQuestion',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--env-vars-file', '.env.yaml'
+    ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+      'functions','deploy','VerifySecurityQuestion-staging',
+      '--gen2',
+      '--source', './src/AskSecurityQuestion/VerifySecurityQuestion',
+      '--trigger-http',
+      '--runtime', 'nodejs18',
+      '--region', 'us-central1',
+      '--env-vars-file', '.env.yaml'
+    ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions','deploy','ResetSecurityQuestion-staging',
+    '--gen2',
+    '--source', './src/ResetSecurityQuestion',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--env-vars-file', '.env.yaml'
+    ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+      'functions','deploy','Get2FAInfo-staging',
+      '--gen2',
+      '--source', './src/2FA/Get2FAInfo',
+      '--trigger-http',
+      '--runtime', 'nodejs18',
+      '--region', 'us-central1',
+      '--env-vars-file', '.env.yaml'
+    ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions','deploy','SendOTP-staging',
+    '--gen2',
+    '--source', './src/2FA/SendOTP',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--env-vars-file', '.env.yaml'
+    ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions','deploy','VerifyOTP-staging',
+    '--gen2',
+    '--source', './src/2FA/VerifyOTP',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--env-vars-file', '.env.yaml'
+    ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+      'functions','deploy','UserInfo-staging',
+      '--gen2',
+      '--source', './src/UserInfo',
+      '--trigger-http',
+      '--runtime', 'nodejs18',
+      '--region', 'us-central1',
+      '--env-vars-file', '.env.yaml'
+    ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+      'functions','deploy','SendEmail-staging',
+      '--gen2',
+      '--source', './src/Registration/SendEmail',
+      '--trigger-http',
+      '--runtime', 'nodejs18',
+      '--region', 'us-central1',
+      '--env-vars-file', '.env.yaml'
+    ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions','deploy','CustomerAds-staging',
+    '--gen2',
+    '--source', './src/CustomerAds',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--env-vars-file', '.env.yaml'
+    ]
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+    'functions','deploy','StaticPages-staging',
+    '--gen2',
+    '--source', './src/StaticPages',
+    '--trigger-http',
+    '--runtime', 'nodejs18',
+    '--region', 'us-central1',
+    '--env-vars-file', '.env.yaml'
+    ]

@@ -1,0 +1,11 @@
+{
+  "name": "forgot_user_name",
+  "version": "0.0.1",
+  "scripts": {
+    "start": "functions-framework --target=ForgotUserName"
+  },
+  "dependencies": {
+    "axios": "^1.6.8",
+    "functions-framework": "^0.6.10"
+  }
+}
